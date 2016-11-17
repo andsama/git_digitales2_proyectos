@@ -1,0 +1,30 @@
+[*]
+[*] GTKWave Analyzer v3.3.62 (w)1999-2014 BSI
+[*] Tue Nov 15 16:26:40 2016
+[*]
+[dumpfile] "/home/sama/Documents/Cursos/Digitales2/git_digitales2_proyectos/proyecto1/control/testbench_cmd.vcd"
+[dumpfile_mtime] "Tue Nov 15 16:26:36 2016"
+[dumpfile_size] 3467
+[savefile] "/home/sama/Documents/Cursos/Digitales2/git_digitales2_proyectos/proyecto1/control/cmd.gtkw"
+[timestart] 42100
+[size] 1366 715
+[pos] 0 31
+*-13.409583 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] testbench_cmd.
+[sst_width] 213
+[signals_width] 182
+[sst_expanded] 1
+[sst_vpaned_height] 195
+@24
+testbench_cmd.wClock
+testbench_cmd.wReset
+testbench_cmd.wio1[31:0]
+testbench_cmd.wio2
+testbench_cmd.wpasee_por_reset
+testbench_cmd.uutCmd1.default_value[31:0]
+testbench_cmd.uutCmd1.rCurrentState[1:0]
+testbench_cmd.uutCmd1.rNextState[1:0]
+testbench_cmd.uutCmd1.rTimeCount[31:0]
+testbench_cmd.uutCmd1.rTimeCountReset
+[pattern_trace] 1
+[pattern_trace] 0
