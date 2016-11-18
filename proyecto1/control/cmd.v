@@ -1,36 +1,44 @@
 `timescale 1ns / 1ps
 
 // state definitions
-`define STATE1_IDLE 	0
-`define STATE2_RESET 	1
-`define STATE3_ADD1 	2
-`define STATE4_ADD2 	3
+`define STATE_RESET 	                  0
+`define STATE_IDLE 	                    1
+`define STATE_SETTINGS_OUTPUTS 	        2
+`define STATE_PROCESSING 	              3
 
 module cmd
 (
   // inputs
-  input wire iClock,
-  input wire Reset,
+  input wire iClock_host,
+  input wire iReset,
+  input wire iNew_command,
+  input wire [5:0] iCmd_index,
+  input wire [31:0] iCmd_argument,
+  //input wire [37:0] iCmd_in,
+  input wire iStrobe_in,
+  input wire iAck_in,
+
+
   // outputs
-  output reg pasee_por_reset,
-  output reg [31:0] o1,
-  output reg o2
+  // output reg oIdle_out, not implementing timeout signal yet
+  output reg oStrobe_out,
+  output reg oAck_out,
+  output reg oCommand_complete,
+  output reg [37:0] oResponse
+
 );
 
-integer contador = 0;
 reg [1:0] rCurrentState, rNextState;
 reg [31:0] rTimeCount;
-reg [31:0] default_value;
 reg rTimeCountReset;
 
 //----------------------------------------------
 
-always @ ( posedge iClock )
+always @ ( posedge iClock_host )
 begin
-	if (Reset)
+	if (iReset)
 	begin
-    o1 <= 32'b0;
-		rCurrentState <= `STATE2_RESET;
+		rCurrentState <= `STATE_RESET;
 		rTimeCount <= 32'b0;
 	end
 	else
@@ -50,39 +58,60 @@ always @ ( * )
 begin
 	case (rCurrentState)
 	//------------------------------------------
-	`STATE2_RESET:
+	`STATE_RESET:
 	begin
-    pasee_por_reset =   1'b1;
-		rNextState = 				`STATE1_IDLE;
+
+    // oIdle_out = 0;
+    oStrobe_out = 0;
+    oAck_out = 0;
+    oCommand_complete = 0;
+    oResponse = 0;
+		rNextState = 	`STATE_IDLE;
 	end
 	//------------------------------------------
-	`STATE1_IDLE:
+	`STATE_IDLE:
 	begin
-	 rNextState = `STATE3_ADD1;
+    // oIdle_out = 1;
+    if(iNew_command == 1)
+    begin
+      rNextState =  `STATE_SETTINGS_OUTPUTS;
+    end else begin
+      rNextState = 	`STATE_IDLE;
+    end
 	end
 	//------------------------------------------
-	`STATE3_ADD1:
+	`STATE_SETTINGS_OUTPUTS:
 	begin
-    o1 = o1 + 1;
-		if (o1 > 32'd4)
-		begin
-			rNextState = `STATE4_ADD2;
-		end
-		else
-			rNextState = `STATE3_ADD1;
+    oStrobe_out = 1;
+    //assign iCmd_in = {iCmd_index, iCmd_argument}; i just can concatenate this to oResponse
+    rNextState = `STATE_PROCESSING;
 	end
   //------------------------------------------
-	`STATE4_ADD2:
+	`STATE_PROCESSING:
 	begin
-    rNextState = `STATE1_IDLE;
+    if (iStrobe_in == 1)
+    begin
+      oAck_out = 1;
+      oCommand_complete = 1;
+    end // if with no else
+    oResponse = {iCmd_index, iCmd_argument};
+    if (iAck_in == 1)
+    begin
+      rNextState = `STATE_IDLE;
+    end else begin
+      rNextState = `STATE_PROCESSING;
+    end
 	end
 	//------------------------------------------
 	default:
 	begin
-    default_value = 32'd16;
-    rNextState = `STATE1_IDLE;
+    rNextState = `STATE_RESET;
 	end
 	//------------------------------------------
 	endcase
 end
-endmodule
+
+endmodule // cmd
+
+// i didnt consider errors in index/command
+// not sure if implement timeout signal
