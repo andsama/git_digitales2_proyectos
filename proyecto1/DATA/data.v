@@ -55,6 +55,7 @@ reg rTemp_send;
 reg rTemp_Ack;
 reg rTemp_Data_Complete;
 
+
 always @ (posedge iClock)
 begin: FSM_control
 if (iReset) begin
@@ -159,7 +160,7 @@ module data_send
   input wire iAck,            //Viene de control
   input wire iIdle,           //Ir al estado idle
   input wire [15:0] iTimeout_reg, //Ciclos para un timeout
-  input wire [3:0] iBlocks,     //Cantidad de bloques por procesar
+  input wire [7:0] iBlocks,     //Cantidad de bloques por procesar
   input wire iWriteRead,        //Escritura 1, lectura 0
   input wire iMultipleData,     //Multitrama
   input wire [31:0] iData_from_FIFO,
@@ -167,13 +168,15 @@ module data_send
   input wire iClock,             //reloj de la PC
   input wire iSD_clock,          //reloj de SD
   input wire iData_pin,          //Para el envío de datos
-  output reg oData_pin,         // Para la recepción de datos
+  output wire oData_pin,         // Para la recepción de datos
   output wire oSerial_ready ,    //Capa física lista, hacia control
   output wire oComplete,         //Se completó la operación, enviar a control
   output wire oAck,              //Va hacía control
-  output reg oTimeout_oc,       //Ocurrencia del timeout, hacia control y registros
+  output wire oTimeout_oc,       //Ocurrencia del timeout, hacia control y registros
   output wire oRead_enable,      //lectura del FIFO, Hacía el FIFO
   output wire oWrite_enable,     //escritura del FIFO, Hacía el FIFO
+  output wire oPad_enable,
+  output wire oRead_reset,
   output wire [31:0] oData_to_FIFO
 );
 
@@ -186,7 +189,45 @@ reg [SIZE-1:0] rState;
 reg [SIZE-1:0] rNext_state;
 reg rTemp_Serial_ready, rTemp_Complete, rTemp_oAck;
 reg rTemp_Read_enable, rTemp_Write_enable;
-reg [31:0] rTemp_Data_to_fifo, TEMP;
+reg [31:0] rTemp_Data_from_fifo;
+reg rTemp_enable_pad, TEMP, rRead_reset;
+reg rComplete_Escritura, rComplete_Lectura;
+
+integer Contador;
+
+
+pad pad_probando
+(
+  .iOut_in(iWriteRead),
+  .iEnable(oPad_enable),
+  .iData(iData_pin),
+  .iSD_clock(iSD_clock),
+  .iIo_port(TEMP),
+  .oData(oData_pin)
+);
+
+serial_parallel lectura
+(
+  .iEnable(rTemp_Read_enable),
+  .iFrame_size(iBlocks),
+  .iSerial(oData_pin),
+  .iReset(rRead_reset),
+  .iSD_clock(iSD_clock),
+  .oParallel(oData_to_FIFO),
+  .oComplete(oComplete)
+);
+
+parallel_serial escritura
+(
+  .iEnable(rTemp_Write_enable),
+  .iFrame_size(iBlocks),
+  .iReset(iReset),
+  .iSD_clock(iSD_clock),
+  .iParallel(iData_from_FIFO),
+  .oSerial(iData_pin),
+  .oComplete(oComplete)
+);
+
 
 always @ (posedge iSD_clock)
 begin: FSM_fisica
@@ -195,11 +236,10 @@ begin: FSM_fisica
     rTemp_Serial_ready <= 0;
     rTemp_Complete <= 0;
     rTemp_oAck <= 0;
-    //oTimeout_oc <= 0;      //No sé para que sirve
-    //oData_pin <= 0;        //Igual
     rTemp_Read_enable <= 0;
     rTemp_Write_enable <= 0;
-    rTemp_Data_to_fifo <= 0;
+    rRead_reset <= 1'b0;
+    //rTemp_enable_pad <= 0;
   end
   else begin
     case (rState)
@@ -211,15 +251,85 @@ begin: FSM_fisica
             else begin
               rTemp_Serial_ready <= 1'b1;
               if (iWriteRead) begin
-                rState <= #1 FIFO_READ;    //Escritura a la SD
+                rState <= #1 LOAD_WRITE;    //Escritura a la SD
               end
               else begin
                 rState <= #1 READ;        //Lectura de la SD
               end
             end
 
-        FIFO_READ:
+      /*  FIFO_READ:
+            rTemp_enable_pad <= 1'b1;   //Aquí va sincronización con FIFO
+            rState <= #1 LOAD_WRITE;*/
 
+        LOAD_WRITE:
+            if (rTemp_enable_pad) begin
+              rState <= #1 SEND;
+            end
+            else begin
+              rState <= #1 LOAD_WRITE;
+              rTemp_enable_pad <= 1'b1;
+            end
+
+        SEND: begin
+              rTemp_Write_enable <= 1'b1;
+              rState <= #1 WAIT_RESPONSE;
+        end
+
+        WAIT_RESPONSE:
+            if (~rComplete_Escritura) begin
+              rState <= #1 WAIT_RESPONSE;
+            end
+            else begin
+            rTemp_Write_enable <= 0;
+            Contador <= Contador + 1;
+            if (Contador >= iBlocks) begin
+              rState <= #1 WAIT_ACK;
+            end
+            else begin
+              rState <= #1 LOAD_WRITE;
+              end
+            end // -,-
+
+        READ: begin
+            if (~rComplete_Lectura) begin
+              rRead_reset <= 0;
+              rTemp_enable_pad <= 1'b0;
+              rTemp_Read_enable <= 1'b1;
+              rState <= #1 READ;
+            end else begin
+              rRead_reset <= 1'b0;
+              Contador <= Contador + 1;
+              if (Contador >= iBlocks) begin
+                  rState <= #1 WAIT_ACK;
+              end
+              else begin
+                  rState <= #1 READ_WRAPPER_RESET;
+              end
+            end
+          end
+
+          //READ_FIFO_WRITE -> Sync con FIFO
+
+          READ_WRAPPER_RESET: begin
+            rRead_reset <= 1'b1;
+            rState <= #1 READ;
+          end
+
+          WAIT_ACK:
+            if (iAck) begin
+              rTemp_Complete <= 1'b1;
+              rState <= #1 SEND_ACK;
+            end
+            else begin
+              rTemp_Complete <= 1'b1;
+              rState <= #1 WAIT_ACK;
+            end
+
+          SEND_ACK: begin
+              rTemp_oAck <= 1'b1;
+              rState <= #1 IDLE;
+          end
 
        default: rState <= #1 IDLE;
     endcase
@@ -231,7 +341,9 @@ assign oComplete = rTemp_Complete;
 assign oAck = rTemp_oAck;
 assign oRead_enable = rTemp_Read_enable;
 assign oWrite_enable = rTemp_Write_enable;
-assign oData_to_FIFO = rTemp_Data_to_fifo;
+assign oPad_enable = rTemp_enable_pad;
+//assign oRead_reset = rRead_reset;
+//assign oData_to_FIFO = rTemp_Data_to_fifo;
 
 endmodule // Envío de los datos
 
@@ -242,7 +354,7 @@ module serial_parallel
   input wire iEnable,
   input wire [7:0] iFrame_size,  //Tamaño de trama
   input wire iSerial,
-  input wire [3:0] iSerial_multi,
+  //input wire [3:0] iSerial_multi,
   input wire iReset,
   input wire iSD_clock,
   output wire [31:0] oParallel,
@@ -320,7 +432,7 @@ reg rD;  //Para guardar oComplete
 
 //Para trama:
 integer j;
-always @ (posedge iSD_clock) begin
+always @ (posedge iSD_clock && iEnable) begin
   if (~iReset) begin
   for (j=0; j <= 31; j = j + 1) begin
       rC <= iParallel[j];
