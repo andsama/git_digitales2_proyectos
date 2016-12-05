@@ -1,5 +1,5 @@
 $date
-	Thu Nov 17 16:04:18 2016
+	Mon Dec  5 15:48:17 2016
 $end
 $version
 	Icarus Verilog
@@ -10,177 +10,187 @@ $end
 $scope module test_data $end
 $var wire 1 ! Ack_in_control $end
 $var wire 1 " Ack_in_phys $end
-$var wire 4 # Blocks [3:0] $end
+$var wire 8 # Blocks [7:0] $end
 $var wire 1 $ Clock $end
 $var wire 1 % Complete $end
-$var wire 32 & Data_from_FIFO [31:0] $end
-$var wire 1 ' Data_pin_in $end
-$var wire 1 ( Data_pin_out $end
-$var wire 32 ) Data_to_FIFO [31:0] $end
-$var wire 1 * Data_transfer_complete $end
-$var wire 1 + FIFO_ok $end
-$var wire 1 , Idle $end
-$var wire 1 - MultipleData $end
-$var wire 1 . NewData $end
-$var wire 1 / Read_enable $end
-$var wire 1 0 Reset $end
-$var wire 1 1 SD_clock $end
-$var wire 1 2 Send $end
-$var wire 1 3 Serial_ready $end
-$var wire 1 4 Service $end
-$var wire 1 5 Timeout $end
-$var wire 1 6 Timeout_enable $end
-$var wire 1 7 Timeout_oc $end
-$var wire 16 8 Timeout_reg [15:0] $end
-$var wire 1 9 WriteRead $end
-$var wire 1 : Write_enable $end
+$var wire 1 & Complete_escritura $end
+$var wire 1 ' Complete_lectura $end
+$var wire 32 ( Data_from_FIFO [31:0] $end
+$var wire 1 ) Data_pin_in $end
+$var wire 1 * Data_pin_out $end
+$var wire 32 + Data_to_FIFO [31:0] $end
+$var wire 1 , Data_transfer_complete $end
+$var wire 1 - FIFO_ok $end
+$var wire 1 . Idle $end
+$var wire 1 / MultipleData $end
+$var wire 1 0 NewData $end
+$var wire 1 1 Read_enable $end
+$var wire 1 2 Reset $end
+$var wire 1 3 SD_clock $end
+$var wire 1 4 Send $end
+$var wire 1 5 Serial_ready $end
+$var wire 1 6 Service $end
+$var wire 1 7 Timeout $end
+$var wire 1 8 Timeout_enable $end
+$var wire 1 9 Timeout_oc $end
+$var wire 16 : Timeout_reg [15:0] $end
+$var wire 1 ; WriteRead $end
+$var wire 1 < Write_enable $end
 $scope module Control_datos $end
 $var wire 1 ! iAck $end
-$var wire 4 ; iBlocks [3:0] $end
+$var wire 4 = iBlocks [3:0] $end
 $var wire 1 $ iClock $end
 $var wire 1 % iComplete $end
-$var wire 1 + iFIFO_ok $end
-$var wire 1 - iMultipleData $end
-$var wire 1 . iNewData $end
-$var wire 1 0 iReset $end
-$var wire 1 3 iSerial_ready $end
-$var wire 1 5 iTimeout $end
-$var wire 1 6 iTimeout_enable $end
-$var wire 16 < iTimeout_reg [15:0] $end
-$var wire 1 9 iWriteRead $end
+$var wire 1 - iFIFO_ok $end
+$var wire 1 / iMultipleData $end
+$var wire 1 0 iNewData $end
+$var wire 1 2 iReset $end
+$var wire 1 5 iSerial_ready $end
+$var wire 1 7 iTimeout $end
+$var wire 1 8 iTimeout_enable $end
+$var wire 16 > iTimeout_reg [15:0] $end
+$var wire 1 ; iWriteRead $end
 $var wire 1 " oAck $end
-$var wire 4 = oBlocks [3:0] $end
-$var wire 1 * oData_transfer_complete $end
-$var wire 1 , oIdle $end
-$var wire 1 - oMultipleData $end
-$var wire 1 2 oSend $end
-$var wire 16 > oTimeout_val [15:0] $end
-$var wire 1 9 oWriteRead $end
-$var reg 3 ? rState [2:0] $end
-$var reg 1 @ rTemp_Ack $end
-$var reg 1 A rTemp_Data_Complete $end
-$var reg 1 B rTemp_Idle $end
-$var reg 1 C rTemp_send $end
+$var wire 4 ? oBlocks [3:0] $end
+$var wire 1 , oData_transfer_complete $end
+$var wire 1 . oIdle $end
+$var wire 1 / oMultipleData $end
+$var wire 1 4 oSend $end
+$var wire 16 @ oTimeout_val [15:0] $end
+$var wire 1 ; oWriteRead $end
+$var reg 3 A rState [2:0] $end
+$var reg 1 B rTemp_Ack $end
+$var reg 1 C rTemp_Data_Complete $end
+$var reg 1 D rTemp_Idle $end
+$var reg 1 E rTemp_send $end
 $scope begin FSM_control $end
 $upscope $end
 $upscope $end
 $scope module Capa_Fisica_datos $end
 $var wire 1 " iAck $end
-$var wire 4 D iBlocks [3:0] $end
+$var wire 8 F iBlocks [7:0] $end
 $var wire 1 $ iClock $end
-$var wire 32 E iData_from_FIFO [31:0] $end
-$var wire 1 ' iData_pin $end
-$var wire 1 , iIdle $end
-$var wire 1 - iMultipleData $end
-$var wire 1 0 iReset $end
-$var wire 1 1 iSD_clock $end
-$var wire 1 4 iService $end
-$var wire 16 F iTimeout_reg [15:0] $end
-$var wire 1 9 iWriteRead $end
+$var wire 32 G iData_from_FIFO [31:0] $end
+$var wire 1 ) iData_pin $end
+$var wire 1 . iIdle $end
+$var wire 1 / iMultipleData $end
+$var wire 1 2 iReset $end
+$var wire 1 3 iSD_clock $end
+$var wire 1 6 iService $end
+$var wire 16 H iTimeout_reg [15:0] $end
+$var wire 1 ; iWriteRead $end
 $var wire 1 ! oAck $end
 $var wire 1 % oComplete $end
-$var wire 1 ( oData_pin $end
-$var wire 32 G oData_to_FIFO [31:0] $end
-$var wire 1 / oRead_enable $end
-$var wire 1 3 oSerial_ready $end
-$var wire 1 : oWrite_enable $end
-$var reg 1 H TEMP $end
-$var reg 1 I oTimeout_oc $end
-$var reg 4 J rState [3:0] $end
-$var reg 1 K rTemp_Complete $end
-$var reg 32 L rTemp_Data_to_fifo [31:0] $end
-$var reg 1 M rTemp_Read_enable $end
-$var reg 1 N rTemp_Serial_ready $end
-$var reg 1 O rTemp_Write_enable $end
-$var reg 1 P rTemp_enable_pad $end
-$var reg 1 Q rTemp_oAck $end
+$var wire 1 & oComplete_escritura $end
+$var wire 1 ' oComplete_lectura $end
+$var wire 1 * oData_pin $end
+$var wire 32 I oData_to_FIFO [31:0] $end
+$var wire 1 J oPad_enable $end
+$var wire 1 1 oRead_enable $end
+$var wire 1 K oRead_reset $end
+$var wire 1 5 oSerial_ready $end
+$var wire 1 9 oTimeout_oc $end
+$var wire 1 < oWrite_enable $end
+$var integer 32 L Contador [31:0] $end
+$var reg 1 M TEMP $end
+$var reg 1 N rRead_reset $end
+$var reg 4 O rState [3:0] $end
+$var reg 1 P rTemp_Complete $end
+$var reg 1 Q rTemp_Read_enable $end
+$var reg 1 R rTemp_Serial_ready $end
+$var reg 1 S rTemp_Write_enable $end
+$var reg 1 T rTemp_enable_pad $end
+$var reg 1 U rTemp_oAck $end
 $scope module pad_probando $end
-$var wire 1 ' iData $end
-$var wire 1 R iEnable $end
-$var wire 1 S iIo_port $end
-$var wire 1 9 iOut_in $end
-$var wire 1 1 iSD_clock $end
-$var wire 1 ( oData $end
-$var reg 1 T a $end
-$var reg 1 U b $end
+$var wire 1 ) iData $end
+$var wire 1 J iEnable $end
+$var wire 1 V iIo_port $end
+$var wire 1 ; iOut_in $end
+$var wire 1 3 iSD_clock $end
+$var wire 1 * oData $end
+$var reg 1 W a $end
+$var reg 1 X b $end
 $upscope $end
 $scope module lectura $end
-$var wire 1 V iEnable $end
-$var wire 8 W iFrame_size [7:0] $end
-$var wire 1 0 iReset $end
-$var wire 1 1 iSD_clock $end
-$var wire 1 ( iSerial $end
-$var wire 1 % oComplete $end
-$var wire 32 X oParallel [31:0] $end
-$var integer 32 Y i [31:0] $end
-$var reg 32 Z rA [31:0] $end
-$var reg 1 [ rB $end
+$var wire 1 Y iEnable $end
+$var wire 8 Z iFrame_size [7:0] $end
+$var wire 1 K iReset $end
+$var wire 1 3 iSD_clock $end
+$var wire 1 * iSerial $end
+$var wire 1 ' oComplete $end
+$var wire 32 [ oParallel [31:0] $end
+$var integer 32 \ i [31:0] $end
+$var reg 32 ] rA [31:0] $end
+$var reg 1 ^ rB $end
 $upscope $end
 $scope module escritura $end
-$var wire 1 \ iEnable $end
-$var wire 8 ] iFrame_size [7:0] $end
-$var wire 32 ^ iParallel [31:0] $end
-$var wire 1 0 iReset $end
-$var wire 1 1 iSD_clock $end
-$var wire 1 % oComplete $end
-$var wire 1 ' oSerial $end
-$var wire 4 _ oSerial_multi [3:0] $end
-$var integer 32 ` j [31:0] $end
-$var reg 1 a rC $end
-$var reg 1 b rD $end
+$var wire 1 < iEnable $end
+$var wire 8 _ iFrame_size [7:0] $end
+$var wire 32 ` iParallel [31:0] $end
+$var wire 1 2 iReset $end
+$var wire 1 3 iSD_clock $end
+$var wire 1 & oComplete $end
+$var wire 1 ) oSerial $end
+$var wire 4 a oSerial_multi [3:0] $end
+$var integer 32 b j [31:0] $end
+$var reg 1 c rC $end
+$var reg 1 d rD $end
 $upscope $end
 $scope begin FSM_fisica $end
 $upscope $end
 $upscope $end
 $scope module probador $end
 $var wire 1 % Complete $end
-$var wire 32 c Data_from_FIFO [31:0] $end
-$var wire 1 ' Data_pin_in $end
-$var wire 1 ( Data_pin_out $end
-$var wire 1 * Data_transfer_complete $end
-$var wire 1 , Idle $end
-$var wire 1 2 Send $end
-$var wire 1 3 Serial_ready $end
-$var wire 1 4 Service $end
-$var wire 1 5 Timeout $end
-$var reg 4 d Blocks [3:0] $end
-$var reg 1 e Clock $end
-$var reg 1 f FIFO_ok $end
-$var reg 1 g MultipleData $end
-$var reg 1 h NewData $end
-$var reg 1 i Reset $end
-$var reg 1 j SD_clock $end
-$var reg 1 k Timeout_enable $end
-$var reg 16 l Timeout_reg [15:0] $end
-$var reg 1 m WriteRead $end
+$var wire 1 ) Data_pin_in $end
+$var wire 1 * Data_pin_out $end
+$var wire 1 , Data_transfer_complete $end
+$var wire 1 . Idle $end
+$var wire 1 4 Send $end
+$var wire 1 5 Serial_ready $end
+$var wire 1 7 Timeout $end
+$var reg 8 e Blocks [7:0] $end
+$var reg 1 f Clock $end
+$var reg 32 g Data_from_FIFO [31:0] $end
+$var reg 1 h FIFO_ok $end
+$var reg 1 i MultipleData $end
+$var reg 1 j NewData $end
+$var reg 1 k Reset $end
+$var reg 1 l SD_clock $end
+$var reg 1 m Service $end
+$var reg 1 n Timeout_enable $end
+$var reg 16 o Timeout_reg [15:0] $end
+$var reg 1 p WriteRead $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
-1m
-b1000110 l
-0k
+1p
+b1000110 o
+0n
+0m
+0l
+1k
 0j
-1i
+0i
 0h
-0g
+b10000000000 g
 0f
-0e
-b10 d
-bz c
-xb
-xa
-bx `
-bz _
-bz ^
-b10 ]
-x\
-x[
-bx Z
-bx Y
-bx X
-b10 W
+b1 e
+xd
+xc
+b0 b
+bz a
+b10000000000 `
+b1 _
+x^
+bx ]
+bx \
+bx [
+b1 Z
+xY
+xX
+xW
 xV
 xU
 xT
@@ -188,1258 +198,989 @@ xS
 xR
 xQ
 xP
-xO
+bx O
 xN
 xM
-bx L
+b0 L
 xK
-bx J
-xI
-xH
-bx G
-b1000110 F
-bz E
-b10 D
+xJ
+bx I
+b1000110 H
+b10000000000 G
+b1 F
+xE
+xD
 xC
 xB
-xA
-x@
-bx ?
+bx A
+b1000110 @
+bz ?
 b1000110 >
-b10 =
-b1000110 <
-b10 ;
-x:
-19
-b1000110 8
-x7
+b1 =
+x<
+1;
+b1000110 :
+z9
+08
+z7
 06
-z5
-z4
-x3
-x2
-01
-10
-x/
-0.
+x5
+x4
+03
+12
+x1
+00
+0/
+x.
 0-
 x,
-0+
+bx +
 x*
-bx )
-x(
+x)
+b10000000000 (
 x'
-bz &
+x&
 x%
 0$
-b10 #
+b1 #
 x"
 x!
 $end
 #20000
+0D
+0.
 0B
-0,
-0@
 0"
+0E
+04
 0C
-02
-0A
-0*
-1e
+0,
+1f
 1$
 #21000
-b111 ?
+b111 A
 #40000
-1[
-bx Z
-1b
-za
-z'
-b100000 Y
-b100000 `
-0e
+0d
+0&
+0c
+0)
+b0 ]
+b0 +
+b0 I
+b0 [
+b1 b
+0f
 0$
-0i
-00
-1j
-11
+0k
+02
+1l
+13
 #41000
-b1111 J
+b1111 O
 #60000
-1B
-1,
-1e
+1D
+1.
+1f
 1$
 #80000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #100000
-1e
+1f
 1$
 #120000
-1[
-bx Z
-zT
-1N
-13
-1b
-b100000 Y
-b100000 `
-0e
+0W
+1R
+15
+0S
+0<
+b10 b
+0f
 0$
-1j
-11
-#121000
-b1110 J
+1l
+13
 #140000
-1e
+1f
 1$
 #160000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #180000
-1e
+1f
 1$
 #200000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+0f
 0$
+1l
+13
+1m
+16
 1j
-11
-1h
-1.
+10
 #201000
-b1111 J
+b1101 O
 #220000
-1e
+1f
 1$
 #221000
-b110 ?
+b110 A
 #240000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #260000
-0B
-0,
-1e
+0D
+0.
+1f
 1$
 #261000
-b101 ?
+b101 A
 #280000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+1T
+1J
+0f
 0$
-1j
-11
-#281000
-b1110 J
+1l
+13
 #300000
-1e
+1f
 1$
 #320000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #340000
-1e
+1f
 1$
 #360000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+0f
 0$
-1j
-11
+1l
+13
 #361000
-b1111 J
+b1100 O
 #380000
-1e
+1f
 1$
 #400000
-0e
+0f
 0$
+0l
+03
 0j
-01
-0h
-0.
+00
 #420000
-1e
+1f
 1$
 #440000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b11 b
+1S
+1<
+0f
 0$
-1j
-11
+1l
+13
 #441000
-b1110 J
+b1011 O
 #460000
-1e
+1f
 1$
 #480000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #500000
-1e
+1f
 1$
+0m
+06
 #520000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b100 b
+0f
 0$
-1j
-11
-#521000
-b1111 J
+1l
+13
 #540000
-1e
+1f
 1$
 #560000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #580000
-1e
+1f
 1$
 #600000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b101 b
+0f
 0$
-1j
-11
-1f
-1+
-#601000
-b1110 J
+1l
+13
+1h
+1-
 #620000
-1e
+1f
 1$
 #621000
-b100 ?
+b100 A
 #640000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #660000
-1e
+1f
 1$
 #661000
-b11 ?
+b11 A
 #680000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b110 b
+0f
 0$
-1j
-11
-#681000
-b1111 J
+1l
+13
 #700000
-b111 ?
-1A
-1*
-1e
+b111 A
+1C
+1,
+1f
 1$
 #720000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #740000
-0A
-0*
-1B
-1,
-1e
+1D
+1.
+1f
 1$
 #760000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b111 b
+0f
 0$
-1j
-11
-#761000
-b1110 J
+1l
+13
 #780000
-1e
+1f
 1$
 #800000
-0e
-0$
-0j
-01
 0f
-0+
+0$
+0l
+03
+0h
+0-
 #820000
-1e
+1f
 1$
 #840000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b1000 b
+0f
 0$
-1j
-11
-#841000
-b1111 J
+1l
+13
 #860000
-1e
+1f
 1$
 #880000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #900000
-1e
+1f
 1$
 #920000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b1001 b
+0f
 0$
-1j
-11
-#921000
-b1110 J
+1l
+13
 #940000
-1e
+1f
 1$
 #960000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #980000
-1e
+1f
 1$
 #1000000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b1010 b
+0f
 0$
-1j
-11
-#1001000
-b1111 J
+1l
+13
 #1020000
-1e
+1f
 1$
 #1040000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #1060000
-1e
+1f
 1$
 #1080000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+1c
+1)
+b1011 b
+0f
 0$
-1j
-11
-#1081000
-b1110 J
+1l
+13
 #1100000
-1e
+1f
 1$
 #1120000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #1140000
-1e
+1f
 1$
 #1160000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+0c
+0)
+1W
+b1100 b
+0f
 0$
-1j
-11
-#1161000
-b1111 J
+1l
+13
 #1180000
-1e
+1f
 1$
 #1200000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #1220000
-1e
+1f
 1$
 #1240000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+0W
+b1101 b
+0f
 0$
-1j
-11
-#1241000
-b1110 J
+1l
+13
 #1260000
-1e
+1f
 1$
 #1280000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #1300000
-1e
+1f
 1$
 #1320000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b1110 b
+0f
 0$
-1j
-11
-#1321000
-b1111 J
+1l
+13
 #1340000
-1e
+1f
 1$
 #1360000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #1380000
-1e
+1f
 1$
 #1400000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b1111 b
+0f
 0$
-1j
-11
-#1401000
-b1110 J
+1l
+13
 #1420000
-1e
+1f
 1$
 #1440000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #1460000
-1e
+1f
 1$
 #1480000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b10000 b
+0f
 0$
-1j
-11
-#1481000
-b1111 J
+1l
+13
 #1500000
-1e
+1f
 1$
 #1520000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #1540000
-1e
+1f
 1$
 #1560000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b10001 b
+0f
 0$
-1j
-11
-#1561000
-b1110 J
+1l
+13
 #1580000
-1e
+1f
 1$
 #1600000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #1620000
-1e
+1f
 1$
 #1640000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b10010 b
+0f
 0$
-1j
-11
-#1641000
-b1111 J
+1l
+13
 #1660000
-1e
+1f
 1$
 #1680000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #1700000
-1e
+1f
 1$
 #1720000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b10011 b
+0f
 0$
-1j
-11
-#1721000
-b1110 J
+1l
+13
 #1740000
-1e
+1f
 1$
 #1760000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #1780000
-1e
+1f
 1$
 #1800000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b10100 b
+0f
 0$
-1j
-11
-#1801000
-b1111 J
+1l
+13
 #1820000
-1e
+1f
 1$
 #1840000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #1860000
-1e
+1f
 1$
 #1880000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b10101 b
+0f
 0$
-1j
-11
-#1881000
-b1110 J
+1l
+13
 #1900000
-1e
+1f
 1$
 #1920000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #1940000
-1e
+1f
 1$
 #1960000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b10110 b
+0f
 0$
-1j
-11
-#1961000
-b1111 J
+1l
+13
 #1980000
-1e
+1f
 1$
 #2000000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #2020000
-1e
+1f
 1$
 #2040000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b10111 b
+0f
 0$
-1j
-11
-#2041000
-b1110 J
+1l
+13
 #2060000
-1e
+1f
 1$
 #2080000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #2100000
-1e
+1f
 1$
 #2120000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b11000 b
+0f
 0$
-1j
-11
-#2121000
-b1111 J
+1l
+13
 #2140000
-1e
+1f
 1$
 #2160000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #2180000
-1e
+1f
 1$
 #2200000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b11001 b
+0f
 0$
-1j
-11
-#2201000
-b1110 J
+1l
+13
 #2220000
-1e
+1f
 1$
 #2240000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #2260000
-1e
+1f
 1$
 #2280000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b11010 b
+0f
 0$
-1j
-11
-#2281000
-b1111 J
+1l
+13
 #2300000
-1e
+1f
 1$
 #2320000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #2340000
-1e
+1f
 1$
 #2360000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b11011 b
+0f
 0$
-1j
-11
-#2361000
-b1110 J
+1l
+13
 #2380000
-1e
+1f
 1$
 #2400000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #2420000
-1e
+1f
 1$
 #2440000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b11100 b
+0f
 0$
-1j
-11
-#2441000
-b1111 J
+1l
+13
 #2460000
-1e
+1f
 1$
 #2480000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #2500000
-1e
+1f
 1$
 #2520000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b11101 b
+0f
 0$
-1j
-11
-#2521000
-b1110 J
+1l
+13
 #2540000
-1e
+1f
 1$
 #2560000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #2580000
-1e
+1f
 1$
 #2600000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b11110 b
+0f
 0$
-1j
-11
-#2601000
-b1111 J
+1l
+13
 #2620000
-1e
+1f
 1$
 #2640000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #2660000
-1e
+1f
 1$
 #2680000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b11111 b
+0f
 0$
-1j
-11
-#2681000
-b1110 J
+1l
+13
 #2700000
-1e
+1f
 1$
 #2720000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #2740000
-1e
+1f
 1$
 #2760000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+1d
+1&
+b100000 b
+0f
 0$
-1j
-11
-#2761000
-b1111 J
+1l
+13
 #2780000
-1e
+1f
 1$
 #2800000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #2820000
-1e
+1f
 1$
 #2840000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+xc
+x)
+b1 L
+0S
+0<
+b100001 b
+0f
 0$
-1j
-11
+1l
+13
 #2841000
-b1110 J
+b1101 O
 #2860000
-1e
+1f
 1$
 #2880000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #2900000
-1e
+1f
 1$
 #2920000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+xW
+0f
 0$
-1j
-11
+1l
+13
 #2921000
-b1111 J
+b1100 O
 #2940000
-1e
+1f
 1$
 #2960000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #2980000
-1e
+1f
 1$
 #3000000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b100010 b
+1S
+1<
+0f
 0$
-1j
-11
+1l
+13
 #3001000
-b1110 J
+b1011 O
 #3020000
-1e
+1f
 1$
 #3040000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #3060000
-1e
+1f
 1$
 #3080000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+b10 L
+0S
+0<
+b100011 b
+0f
 0$
-1j
-11
+1l
+13
 #3081000
-b1111 J
+b111 O
 #3100000
-1e
+1f
 1$
 #3120000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #3140000
-1e
+1f
 1$
 #3160000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+1P
+1%
+0f
 0$
-1j
-11
-#3161000
-b1110 J
+1l
+13
 #3180000
-1e
+1f
 1$
 #3200000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #3220000
-1e
+1f
 1$
 #3240000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+0f
 0$
-1j
-11
-#3241000
-b1111 J
+1l
+13
 #3260000
-1e
+1f
 1$
 #3280000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #3300000
-1e
+1f
 1$
 #3320000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+0f
 0$
-1j
-11
-#3321000
-b1110 J
+1l
+13
 #3340000
-1e
+1f
 1$
 #3360000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #3380000
-1e
+1f
 1$
 #3400000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+0f
 0$
-1j
-11
-#3401000
-b1111 J
+1l
+13
 #3420000
-1e
+1f
 1$
 #3440000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #3460000
-1e
+1f
 1$
 #3480000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+0f
 0$
-1j
-11
-#3481000
-b1110 J
+1l
+13
 #3500000
-1e
+1f
 1$
 #3520000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #3540000
-1e
+1f
 1$
 #3560000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+0f
 0$
-1j
-11
-#3561000
-b1111 J
+1l
+13
 #3580000
-1e
+1f
 1$
 #3600000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #3620000
-1e
+1f
 1$
 #3640000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+0f
 0$
-1j
-11
-#3641000
-b1110 J
+1l
+13
 #3660000
-1e
+1f
 1$
 #3680000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #3700000
-1e
+1f
 1$
 #3720000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+0f
 0$
-1j
-11
-#3721000
-b1111 J
+1l
+13
 #3740000
-1e
+1f
 1$
 #3760000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #3780000
-1e
+1f
 1$
 #3800000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+0f
 0$
-1j
-11
-#3801000
-b1110 J
+1l
+13
 #3820000
-1e
+1f
 1$
 #3840000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #3860000
-1e
+1f
 1$
 #3880000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+0f
 0$
-1j
-11
-#3881000
-b1111 J
+1l
+13
 #3900000
-1e
+1f
 1$
 #3920000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #3940000
-1e
+1f
 1$
 #3960000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+0f
 0$
-1j
-11
-#3961000
-b1110 J
+1l
+13
 #3980000
-1e
+1f
 1$
 #4000000
-0e
+0f
 0$
-0j
-01
+0l
+03
 #4020000
-1e
+1f
 1$
 #4040000
-1[
-bx Z
-1b
-b100000 Y
-b100000 `
-0e
+0f
 0$
-1j
-11
+1l
+13

@@ -36,11 +36,14 @@ module probador_data
     output wire Send,           //Se debe empezar a enviar los datos, hacia capa física
     //output wire Ack_out,
     output wire Idle,                //Para decir a capa física que vaya al estado idle
-    output wire Service,        //Para solicitar servicio
-    output wire [31:0] Data_from_FIFO,
+    output Service,        //Para solicitar servicio
+    output [31:0] Data_from_FIFO,
     output wire Data_pin_in,
     output wire Data_pin_out
   );
+
+
+  reg Data_from_FIFO = 1024;
 
   reg Clock = 0;
   always #20 Clock = !Clock;         //50 MHz
@@ -55,7 +58,7 @@ reg Reset=1;
 end
 
 reg WriteRead = 1;
-reg Blocks = 8'b00000010;
+reg Blocks = 1;
 reg MultipleData = 0;
 reg Timeout_enable = 0;
 reg Timeout_reg = 70;
@@ -78,6 +81,13 @@ reg FIFO_ok = 0;
 initial begin
   # 600  FIFO_ok = 1;
   # 200  FIFO_ok = 0;
+  # 4000 $finish;
+end
+
+reg Service = 0;
+initial begin
+  # 200  Service = 1;
+  # 300  Service = 0;
   # 4000 $finish;
 end
 

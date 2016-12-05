@@ -32,7 +32,7 @@ parameter Register_size = 16;
 wire Clock, Reset, WriteRead, MultipleData, Timeout_enable, NewData, Serial_ready, Timeout;
 wire Complete, Ack_in_control, FIFO_ok, Data_transfer_complete, Send, Ack_in_phys, Idle;
 wire Service, SD_clock, Data_pin_in, Data_pin_out, Timeout_oc, Read_enable, TEMP;
-wire Write_enable;
+wire Write_enable, Complete_lectura, Complete_escritura;
 wire [Blocks_size_to_process-1:0] Blocks;
 wire [Register_size-1:0] Timeout_reg;
 wire [FIFO_data_size-1:0] Data_from_FIFO, Data_to_FIFO;
@@ -83,6 +83,8 @@ data_control Control_datos
     .oTimeout_oc(Timeout_oc),
     .oRead_enable(Read_enable),
     .oWrite_enable(Write_enable),
+    .oComplete_lectura(Complete_lectura),
+    .oComplete_escritura(Complete_escritura),
     .oData_to_FIFO(Data_to_FIFO)
   );
 
