@@ -43,7 +43,7 @@ module probador_data
   );
 
 
-  reg Data_from_FIFO = 1024;
+  reg Data_from_FIFO = 1250;
 
   reg Clock = 0;
   always #20 Clock = !Clock;         //50 MHz

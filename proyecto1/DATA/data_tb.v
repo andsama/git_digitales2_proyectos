@@ -76,6 +76,7 @@ data_control Control_datos
     .iClock(Clock),
     .iSD_clock(SD_clock),
     .iData_pin(Data_pin_in),
+    .iSend(Send),
     .oData_pin(Data_pin_out),
     .oSerial_ready(Serial_ready),
     .oComplete(Complete),
