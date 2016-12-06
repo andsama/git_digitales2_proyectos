@@ -369,18 +369,17 @@ reg [31:0] rA;  //Para guardar resultados en paralelo
 reg rB;         //Para guardar oComplete
 
 //Para Trama:
-  integer i;
-  always @ (posedge iSD_clock & iEnable) begin
+  integer i = 0;
+  always @ (posedge iSD_clock && iEnable) begin
     if (~iReset) begin
-      for (i=0; i <= 31; i = i + 1) begin
           rA[i] <= iSerial;
-          if (i>=31) begin
+          i = i + 1;
+          if (i>=32) begin
               rB <= 1;
           end
           else begin
               rB <= 0;
           end
-      end
     end
     else begin
       rA <= 0;
@@ -436,7 +435,7 @@ reg rD;  //Para guardar oComplete
 
 //Para trama:
 integer j=0;
-always @ (posedge iSD_clock && iEnable==1) begin
+always @ (posedge iSD_clock && iEnable) begin
   if (~iReset) begin
       rC <= iParallel[j];
       j = j + 1;
