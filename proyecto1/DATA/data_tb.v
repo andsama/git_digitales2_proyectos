@@ -32,7 +32,8 @@ parameter Register_size = 16;
 wire Clock, Reset, WriteRead, MultipleData, Timeout_enable, NewData, Serial_ready, Timeout;
 wire Complete, Ack_in_control, FIFO_ok, Data_transfer_complete, Send, Ack_in_phys, Idle;
 wire Service, SD_clock, Data_pin_in, Data_pin_out, Timeout_oc, Read_enable, TEMP;
-wire Write_enable, Complete_lectura, Complete_escritura;
+wire Write_enable, Complete_lectura, Complete_escritura, Empty_out, ReadEn_in;
+wire Full_out, WriteEn_in, Clear_in;
 wire [Blocks_size_to_process-1:0] Blocks;
 wire [Register_size-1:0] Timeout_reg;
 wire [FIFO_data_size-1:0] Data_from_FIFO, Data_to_FIFO;
@@ -115,7 +116,18 @@ data_control Control_datos
       .Data_pin_out(Data_pin_out)
     );
 
-
+  aFifo MyFIFO
+    (
+      .Data_out(Data_from_FIFO),
+      .Empty_out(Empty_out),
+      .ReadEn_in(ReadEn_in),
+      .RClk(Clock),
+      .Data_in(Data_to_FIFO),
+      .Full_out(Full_out),
+      .WriteEn_in(WriteEn_in),
+      .WClk(SD_clock),
+      .Clear_in(Clear_in)
+    );
 
 
 endmodule    //Test bench de data
