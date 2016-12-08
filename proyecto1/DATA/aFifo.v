@@ -13,7 +13,7 @@
 
 module aFifo
   #(parameter    DATA_WIDTH    = 32,
-                 ADDRESS_WIDTH = 4,
+                 ADDRESS_WIDTH = 8,
                  FIFO_DEPTH    = (1 << ADDRESS_WIDTH))
      //Reading port
     (output reg  [DATA_WIDTH-1:0]        Data_out,

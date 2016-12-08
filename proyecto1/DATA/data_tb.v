@@ -37,6 +37,8 @@ wire Full_out, WriteEn_in, Clear_in;
 wire [Blocks_size_to_process-1:0] Blocks;
 wire [Register_size-1:0] Timeout_reg;
 wire [FIFO_data_size-1:0] Data_from_FIFO, Data_to_FIFO;
+wire [31:0] Data_from_FIFO_temp, Data_to_FIFO_temp;
+wire [3:0] fifo_counter;
 
 data_control Control_datos
   (
@@ -112,21 +114,60 @@ data_control Control_datos
       .Idle(Idle),
       .Service(Service),
       .Data_from_FIFO(Data_from_FIFO),
+      .Data_to_FIFO_temp(Data_to_FIFO_temp),
       .Data_pin_in(Data_pin_in),
+      .WriteEn_in(WriteEn_in),
+      .ReadEn_in(ReadEn_in),
       .Data_pin_out(Data_pin_out)
     );
 
-  aFifo MyFIFO
+  /*aFifo MyFIFO
     (
-      .Data_out(Data_from_FIFO),
+      .Data_out(Data_from_FIFO_temp),
       .Empty_out(Empty_out),
       .ReadEn_in(ReadEn_in),
       .RClk(Clock),
-      .Data_in(Data_to_FIFO),
+      .Data_in(Data_to_FIFO_temp),
       .Full_out(Full_out),
       .WriteEn_in(WriteEn_in),
-      .WClk(SD_clock),
-      .Clear_in(Clear_in)
+      .WClk(Clock),
+      .Clear_in(1'b0)
+    );
+
+    fifo MyFIFO
+    (
+      .clk(Clock),
+      .rst(1'b0),
+      .buf_in(Data_to_FIFO_temp),
+      .buf_out(Data_from_FIFO_temp),
+      .wr_en(1'b0),
+      .rd_en(1'b1),
+      .buf_empty(Empty_out),
+      .buf_full(Full_out),
+      .fifo_counter(fifo_counter)
+    );
+
+    bfifo MyFIFO
+    (
+      .clock(Clock),
+      .reset(Reset),
+      .din(Data_to_FIFO_temp),
+      .dout(Data_from_FIFO_temp),
+      .wr(1'b0),
+      .rd(1'b1),
+      .empty(Empty_out),
+      .full(Full_out)
+    );*/
+
+    cfifo MyFIFO
+    (
+      .clock(Clock),
+      .reset(~Reset),
+      .inData(Data_to_FIFO_temp),
+      .new_data(ReadEn_in),
+      .outData(Data_from_FIFO_temp),
+      .out_data(WriteEn_in),
+      .full(Full_out)
     );
 
 

@@ -1,5 +1,5 @@
 $date
-	Tue Dec  6 00:43:22 2016
+	Wed Dec  7 22:57:48 2016
 $end
 $version
 	Icarus Verilog
@@ -16,233 +16,287 @@ $var wire 1 % Complete $end
 $var wire 1 & Complete_escritura $end
 $var wire 1 ' Complete_lectura $end
 $var wire 32 ( Data_from_FIFO [31:0] $end
-$var wire 1 ) Data_pin_in $end
-$var wire 1 * Data_pin_out $end
-$var wire 32 + Data_to_FIFO [31:0] $end
-$var wire 1 , Data_transfer_complete $end
-$var wire 1 - FIFO_ok $end
-$var wire 1 . Idle $end
-$var wire 1 / MultipleData $end
-$var wire 1 0 NewData $end
-$var wire 1 1 Read_enable $end
-$var wire 1 2 Reset $end
-$var wire 1 3 SD_clock $end
-$var wire 1 4 Send $end
-$var wire 1 5 Serial_ready $end
-$var wire 1 6 Service $end
-$var wire 1 7 Timeout $end
-$var wire 1 8 Timeout_enable $end
-$var wire 1 9 Timeout_oc $end
-$var wire 16 : Timeout_reg [15:0] $end
-$var wire 1 ; WriteRead $end
-$var wire 1 < Write_enable $end
+$var wire 32 ) Data_from_FIFO_temp [31:0] $end
+$var wire 1 * Data_pin_in $end
+$var wire 1 + Data_pin_out $end
+$var wire 32 , Data_to_FIFO [31:0] $end
+$var wire 32 - Data_to_FIFO_temp [31:0] $end
+$var wire 1 . Data_transfer_complete $end
+$var wire 1 / FIFO_ok $end
+$var wire 1 0 Full_out $end
+$var wire 1 1 Idle $end
+$var wire 1 2 MultipleData $end
+$var wire 1 3 NewData $end
+$var wire 1 4 ReadEn_in $end
+$var wire 1 5 Read_enable $end
+$var wire 1 6 Reset $end
+$var wire 1 7 SD_clock $end
+$var wire 1 8 Send $end
+$var wire 1 9 Serial_ready $end
+$var wire 1 : Service $end
+$var wire 1 ; Timeout $end
+$var wire 1 < Timeout_enable $end
+$var wire 1 = Timeout_oc $end
+$var wire 16 > Timeout_reg [15:0] $end
+$var wire 1 ? WriteEn_in $end
+$var wire 1 @ WriteRead $end
+$var wire 1 A Write_enable $end
 $scope module Control_datos $end
 $var wire 1 ! iAck $end
-$var wire 4 = iBlocks [3:0] $end
+$var wire 4 B iBlocks [3:0] $end
 $var wire 1 $ iClock $end
 $var wire 1 % iComplete $end
-$var wire 1 - iFIFO_ok $end
-$var wire 1 / iMultipleData $end
-$var wire 1 0 iNewData $end
-$var wire 1 2 iReset $end
-$var wire 1 5 iSerial_ready $end
-$var wire 1 7 iTimeout $end
-$var wire 1 8 iTimeout_enable $end
-$var wire 16 > iTimeout_reg [15:0] $end
-$var wire 1 ; iWriteRead $end
+$var wire 1 / iFIFO_ok $end
+$var wire 1 2 iMultipleData $end
+$var wire 1 3 iNewData $end
+$var wire 1 6 iReset $end
+$var wire 1 9 iSerial_ready $end
+$var wire 1 ; iTimeout $end
+$var wire 1 < iTimeout_enable $end
+$var wire 16 C iTimeout_reg [15:0] $end
+$var wire 1 @ iWriteRead $end
 $var wire 1 " oAck $end
-$var wire 4 ? oBlocks [3:0] $end
-$var wire 1 , oData_transfer_complete $end
-$var wire 1 . oIdle $end
-$var wire 1 / oMultipleData $end
-$var wire 1 4 oSend $end
-$var wire 16 @ oTimeout_val [15:0] $end
-$var wire 1 ; oWriteRead $end
-$var reg 3 A rState [2:0] $end
-$var reg 1 B rTemp_Ack $end
-$var reg 1 C rTemp_Data_Complete $end
-$var reg 1 D rTemp_Idle $end
-$var reg 1 E rTemp_send $end
+$var wire 4 D oBlocks [3:0] $end
+$var wire 1 . oData_transfer_complete $end
+$var wire 1 1 oIdle $end
+$var wire 1 2 oMultipleData $end
+$var wire 1 8 oSend $end
+$var wire 16 E oTimeout_val [15:0] $end
+$var wire 1 @ oWriteRead $end
+$var reg 3 F rState [2:0] $end
+$var reg 1 G rTemp_Ack $end
+$var reg 1 H rTemp_Data_Complete $end
+$var reg 1 I rTemp_Idle $end
+$var reg 1 J rTemp_send $end
 $scope begin FSM_control $end
 $upscope $end
 $upscope $end
 $scope module Capa_Fisica_datos $end
 $var wire 1 " iAck $end
-$var wire 8 F iBlocks [7:0] $end
+$var wire 8 K iBlocks [7:0] $end
 $var wire 1 $ iClock $end
-$var wire 32 G iData_from_FIFO [31:0] $end
-$var wire 1 ) iData_pin $end
-$var wire 1 . iIdle $end
-$var wire 1 / iMultipleData $end
-$var wire 1 2 iReset $end
-$var wire 1 3 iSD_clock $end
-$var wire 1 4 iSend $end
-$var wire 1 6 iService $end
-$var wire 16 H iTimeout_reg [15:0] $end
-$var wire 1 ; iWriteRead $end
+$var wire 32 L iData_from_FIFO [31:0] $end
+$var wire 1 * iData_pin $end
+$var wire 1 1 iIdle $end
+$var wire 1 2 iMultipleData $end
+$var wire 1 6 iReset $end
+$var wire 1 7 iSD_clock $end
+$var wire 1 8 iSend $end
+$var wire 1 : iService $end
+$var wire 16 M iTimeout_reg [15:0] $end
+$var wire 1 @ iWriteRead $end
 $var wire 1 ! oAck $end
 $var wire 1 % oComplete $end
 $var wire 1 & oComplete_escritura $end
 $var wire 1 ' oComplete_lectura $end
-$var wire 1 * oData_pin $end
-$var wire 32 I oData_to_FIFO [31:0] $end
-$var wire 1 J oPad_enable $end
-$var wire 1 1 oRead_enable $end
-$var wire 1 K oRead_reset $end
-$var wire 1 5 oSerial_ready $end
-$var wire 1 9 oTimeout_oc $end
-$var wire 1 < oWrite_enable $end
-$var wire 1 L oWrite_reset $end
-$var integer 32 M Contador [31:0] $end
-$var reg 1 N TEMP $end
-$var reg 1 O rRead_reset $end
-$var reg 4 P rState [3:0] $end
-$var reg 1 Q rTemp_Complete $end
-$var reg 1 R rTemp_Read_enable $end
-$var reg 1 S rTemp_Serial_ready $end
-$var reg 1 T rTemp_Write_enable $end
-$var reg 1 U rTemp_enable_pad $end
-$var reg 1 V rTemp_oAck $end
-$var reg 1 W rWrite_reset $end
+$var wire 1 + oData_pin $end
+$var wire 32 N oData_to_FIFO [31:0] $end
+$var wire 1 O oPad_enable $end
+$var wire 1 5 oRead_enable $end
+$var wire 1 P oRead_reset $end
+$var wire 1 9 oSerial_ready $end
+$var wire 1 = oTimeout_oc $end
+$var wire 1 A oWrite_enable $end
+$var wire 1 Q oWrite_reset $end
+$var integer 32 R Contador [31:0] $end
+$var reg 1 S TEMP $end
+$var reg 1 T rRead_reset $end
+$var reg 4 U rState [3:0] $end
+$var reg 1 V rTemp_Complete $end
+$var reg 1 W rTemp_Read_enable $end
+$var reg 1 X rTemp_Serial_ready $end
+$var reg 1 Y rTemp_Write_enable $end
+$var reg 1 Z rTemp_enable_pad $end
+$var reg 1 [ rTemp_oAck $end
+$var reg 1 \ rWrite_reset $end
 $scope module pad_probando $end
-$var wire 1 ) iData $end
-$var wire 1 J iEnable $end
-$var wire 1 X iIo_port $end
-$var wire 1 ; iOut_in $end
-$var wire 1 3 iSD_clock $end
-$var wire 1 * oData $end
-$var reg 1 Y a $end
-$var reg 1 Z b $end
+$var wire 1 * iData $end
+$var wire 1 O iEnable $end
+$var wire 1 ] iIo_port $end
+$var wire 1 @ iOut_in $end
+$var wire 1 7 iSD_clock $end
+$var wire 1 + oData $end
+$var reg 1 ^ a $end
+$var reg 1 _ b $end
 $upscope $end
 $scope module lectura $end
-$var wire 1 [ iEnable $end
-$var wire 8 \ iFrame_size [7:0] $end
-$var wire 1 K iReset $end
-$var wire 1 3 iSD_clock $end
-$var wire 1 * iSerial $end
+$var wire 1 ` iEnable $end
+$var wire 8 a iFrame_size [7:0] $end
+$var wire 1 P iReset $end
+$var wire 1 7 iSD_clock $end
+$var wire 1 + iSerial $end
 $var wire 1 ' oComplete $end
-$var wire 32 ] oParallel [31:0] $end
-$var integer 32 ^ i [31:0] $end
-$var reg 32 _ rA [31:0] $end
-$var reg 1 ` rB $end
+$var wire 32 b oParallel [31:0] $end
+$var integer 32 c i [31:0] $end
+$var reg 32 d rA [31:0] $end
+$var reg 1 e rB $end
 $upscope $end
 $scope module escritura $end
-$var wire 1 < iEnable $end
-$var wire 8 a iFrame_size [7:0] $end
-$var wire 32 b iParallel [31:0] $end
-$var wire 1 L iReset $end
-$var wire 1 3 iSD_clock $end
+$var wire 1 A iEnable $end
+$var wire 8 f iFrame_size [7:0] $end
+$var wire 32 g iParallel [31:0] $end
+$var wire 1 Q iReset $end
+$var wire 1 7 iSD_clock $end
 $var wire 1 & oComplete $end
-$var wire 1 ) oSerial $end
-$var wire 4 c oSerial_multi [3:0] $end
-$var integer 32 d j [31:0] $end
-$var reg 1 e rC $end
-$var reg 1 f rD $end
+$var wire 1 * oSerial $end
+$var wire 4 h oSerial_multi [3:0] $end
+$var integer 32 i j [31:0] $end
+$var reg 1 j rC $end
+$var reg 1 k rD $end
 $upscope $end
 $scope begin FSM_fisica $end
 $upscope $end
 $upscope $end
 $scope module probador $end
 $var wire 1 % Complete $end
-$var wire 1 ) Data_pin_in $end
-$var wire 1 * Data_pin_out $end
-$var wire 1 , Data_transfer_complete $end
-$var wire 1 . Idle $end
-$var wire 1 4 Send $end
-$var wire 1 5 Serial_ready $end
-$var wire 1 7 Timeout $end
-$var reg 8 g Blocks [7:0] $end
-$var reg 1 h Clock $end
-$var reg 32 i Data_from_FIFO [31:0] $end
-$var reg 1 j FIFO_ok $end
-$var reg 1 k MultipleData $end
-$var reg 1 l NewData $end
-$var reg 1 m Reset $end
-$var reg 1 n SD_clock $end
-$var reg 1 o Service $end
-$var reg 1 p Timeout_enable $end
-$var reg 16 q Timeout_reg [15:0] $end
-$var reg 1 r WriteRead $end
+$var wire 1 * Data_pin_in $end
+$var wire 1 + Data_pin_out $end
+$var wire 1 . Data_transfer_complete $end
+$var wire 1 1 Idle $end
+$var wire 1 8 Send $end
+$var wire 1 9 Serial_ready $end
+$var wire 1 ; Timeout $end
+$var reg 8 l Blocks [7:0] $end
+$var reg 1 m Clock $end
+$var reg 32 n Data_from_FIFO [31:0] $end
+$var reg 8 o Data_to_FIFO_temp [7:0] $end
+$var reg 1 p FIFO_ok $end
+$var reg 1 q MultipleData $end
+$var reg 1 r NewData $end
+$var reg 1 s ReadEn_in $end
+$var reg 1 t Reset $end
+$var reg 1 u SD_clock $end
+$var reg 1 v Service $end
+$var reg 1 w Timeout_enable $end
+$var reg 16 x Timeout_reg [15:0] $end
+$var reg 1 y WriteEn_in $end
+$var reg 1 z WriteRead $end
+$upscope $end
+$scope module MyFIFO $end
+$var wire 1 $ clock $end
+$var wire 1 { fullD $end
+$var wire 32 | inData [31:0] $end
+$var wire 1 4 new_data $end
+$var wire 32 } outData [31:0] $end
+$var wire 1 ? out_data $end
+$var wire 1 ~ reset $end
+$var reg 5 !" front [4:0] $end
+$var reg 1 "" full $end
+$var reg 5 #" rear [4:0] $end
+$scope module u1 $end
+$var wire 1 $ clock $end
+$var wire 32 $" dataIn [31:0] $end
+$var wire 5 %" dest [4:0] $end
+$var wire 1 ~ reset $end
+$var wire 5 &" source [4:0] $end
+$var wire 1 4 writeEnable $end
+$var wire 32 '" writeEnableDecoded [31:0] $end
+$var reg 32 (" dataOut [31:0] $end
+$var integer 32 )" i [31:0] $end
+$var integer 32 *" j [31:0] $end
+$upscope $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
-1r
-b1000110 q
+bx *"
+bx )"
+bx ("
+bx '"
+bx &"
+bx %"
+b1111010 $"
+bx #"
+x""
+bx !"
+0~
+bx }
+b1111010 |
+x{
+1z
+0y
+b1000110 x
+0w
+0v
+0u
+1t
+1s
+0r
+0q
 0p
-0o
-0n
-1m
-0l
-0k
-0j
-b10011100010 i
-0h
-b1 g
-xf
+b1111010 o
+b11001000 n
+0m
+b1 l
+xk
+xj
+b0 i
+bz h
+b11001000 g
+b1 f
 xe
-b0 d
-bz c
-b10011100010 b
+bx d
+b0 c
+bx b
 b1 a
 x`
-bx _
-b0 ^
-bx ]
-b1 \
+x_
+x^
+x]
+x\
 x[
 xZ
 xY
 xX
 xW
 xV
-xU
+bx U
 xT
 xS
-xR
+b0 R
 xQ
-bx P
+xP
 xO
-xN
-b0 M
-xL
-xK
+bx N
+b1000110 M
+b11001000 L
+b1 K
 xJ
-bx I
-b1000110 H
-b10011100010 G
-b1 F
-xE
-xD
-xC
-xB
-bx A
-b1000110 @
-bz ?
+xI
+xH
+xG
+bx F
+b1000110 E
+bz D
+b1000110 C
+b1 B
+xA
+1@
+0?
 b1000110 >
-b1 =
-x<
-1;
-b1000110 :
-z9
-08
-z7
-06
+z=
+0<
+z;
+0:
+x9
+x8
+07
+16
 x5
-x4
+14
 03
-12
+02
 x1
-00
+x0
 0/
 x.
-0-
-x,
-bx +
+b1111010 -
+bx ,
+x+
 x*
-x)
-b10011100010 (
+bx )
+b11001000 (
 x'
 x&
 x%
@@ -252,995 +306,1352 @@ x"
 x!
 $end
 #20000
-0D
-0.
-0B
+0{
+0I
+01
+0G
 0"
-0E
-04
-0C
-0,
-1h
+0J
+08
+0H
+0.
+b0 ("
+b0 )
+b0 }
+b0 #"
+b0 %"
+b1 '"
+b0 !"
+b0 &"
+0""
+00
+b100000 )"
+1m
 1$
 #21000
-b111 A
+b111 F
 #40000
-0f
+0k
 0&
-0e
-0)
-b0 _
-b0 +
-b0 I
-b0 ]
-0h
-0$
+0j
+0*
+b0 d
+b0 ,
+b0 N
+b0 b
+1~
 0m
-02
-1n
-13
+0$
+0t
+06
+1u
+17
 #41000
-b1111 P
+b1111 U
 #60000
-1D
-1.
-1h
+1I
+11
+b1 #"
+b1 %"
+b10 '"
+b100000 *"
+1m
 1$
 #80000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #100000
-1h
+b1111010 ("
+b1111010 )
+b1111010 }
+b10 #"
+b10 %"
+b100 '"
+b100000 *"
+1m
 1$
 #120000
-0Y
-0W
-0L
-0V
-0!
+0^
+0\
 0Q
+0[
+0!
+0V
 0%
-1S
-15
-0T
-0<
-0h
+1X
+19
+0Y
+0A
+0m
 0$
-1n
-13
+1u
+17
 #140000
-1h
+b11 #"
+b11 %"
+b1000 '"
+b100000 *"
+1m
 1$
 #160000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #180000
-1h
+b100 #"
+b100 %"
+b10000 '"
+b100000 *"
+1m
 1$
 #200000
-0h
+0m
 0$
-1n
+1u
+17
+1v
+1:
+1r
 13
-1o
-16
-1l
-10
 #201000
-b1101 P
+b1101 U
 #220000
-1h
+b101 #"
+b101 %"
+b100000 '"
+b100000 *"
+1m
 1$
 #221000
-b110 A
+b110 F
 #240000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #260000
-0D
-0.
-1h
+0I
+01
+b110 #"
+b110 %"
+b1000000 '"
+b100000 *"
+1m
 1$
 #261000
-b101 A
+b101 F
 #280000
-1U
-1J
-0h
+1Z
+1O
+0m
 0$
-1n
-13
+1u
+17
 #300000
-1h
+b111 #"
+b111 %"
+b10000000 '"
+b100000 *"
+1m
 1$
 #320000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #340000
-1h
+b1000 #"
+b1000 %"
+b100000000 '"
+b100000 *"
+1m
 1$
 #360000
-0h
+0m
 0$
-1n
-13
+1u
+17
 #380000
-1h
+b1001 #"
+b1001 %"
+b1000000000 '"
+b100000 *"
+1m
 1$
 #400000
-0h
+0m
 0$
-0n
+0u
+07
+0r
 03
-0l
-00
+0s
+b0 '"
+04
+1y
+1?
 #420000
-1h
+b1 !"
+b1 &"
+b100000 *"
+1m
 1$
 #440000
-0h
+0m
 0$
-1n
-13
+1u
+17
 #460000
-1h
+b10 !"
+b10 &"
+b100000 *"
+1m
 1$
 #480000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #500000
-1h
+b11 !"
+b11 &"
+b100000 *"
+1m
 1$
-0o
-06
+0v
+0:
 #520000
-0h
+0m
 0$
-1n
-13
+1u
+17
 #540000
-1h
+b100 !"
+b100 &"
+b100000 *"
+1m
 1$
 #560000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #580000
-1h
+b101 !"
+b101 &"
+b100000 *"
+1m
 1$
 #600000
-0h
+0m
 0$
-1n
-13
-1j
-1-
+1u
+17
+1p
+1/
 #620000
-1h
+b110 !"
+b110 &"
+b100000 *"
+1m
 1$
 #621000
-b100 A
+b100 F
 #640000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #660000
-1E
-14
-1h
+1J
+18
+b111 !"
+b111 &"
+b100000 *"
+1m
 1$
 #680000
-0h
+0m
 0$
-1n
-13
+1u
+17
 #681000
-b1100 P
+b1100 U
 #700000
-1h
+b1000 !"
+b1000 &"
+b100000 *"
+1m
 1$
 #720000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #740000
-1h
+b1001 !"
+b1001 &"
+b100000 *"
+1m
 1$
 #760000
-b1 d
-1T
-1<
-0h
+b1 i
+1Y
+1A
+0m
 0$
-1n
-13
+1u
+17
 #761000
-b1011 P
+b1011 U
 #780000
-1h
+b1010 !"
+1{
+b1010 &"
+b0 ("
+b0 )
+b0 }
+b100000 *"
+1m
 1$
 #800000
-0h
+0m
 0$
-0n
-03
-0j
-0-
+0u
+07
+0p
+0/
 #820000
-1h
+b1011 !"
+0{
+b1011 &"
+1""
+10
+b100000 *"
+1m
 1$
 #840000
-1e
-1)
-b10 d
-0h
+b10 i
+0m
 0$
-1n
-13
+1u
+17
 #860000
-1h
+0""
+00
+b1100 !"
+b1100 &"
+b100000 *"
+1m
 1$
 #880000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #900000
-1h
+b1101 !"
+b1101 &"
+b100000 *"
+1m
 1$
 #920000
-0e
-0)
-1Y
-b11 d
-0h
+b11 i
+0m
 0$
-1n
-13
+1u
+17
 #940000
-1h
+b1110 !"
+b1110 &"
+b100000 *"
+1m
 1$
 #960000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #980000
-1h
+b1111 !"
+b1111 &"
+b100000 *"
+1m
 1$
 #1000000
-0Y
-b100 d
-0h
+1j
+1*
+b100 i
+0m
 0$
-1n
-13
+1u
+17
 #1020000
-1h
+b10000 !"
+b10000 &"
+b100000 *"
+1m
 1$
 #1040000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #1060000
-1h
+b10001 !"
+b10001 &"
+b100000 *"
+1m
 1$
 #1080000
-b101 d
-0h
+0j
+0*
+1^
+b101 i
+0m
 0$
-1n
-13
+1u
+17
 #1100000
-1h
+b10010 !"
+b10010 &"
+b100000 *"
+1m
 1$
 #1120000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #1140000
-1h
+b10011 !"
+b10011 &"
+b100000 *"
+1m
 1$
 #1160000
-1e
-1)
-b110 d
-0h
+0^
+b110 i
+0m
 0$
-1n
-13
+1u
+17
 #1180000
-1h
+b10100 !"
+b10100 &"
+b100000 *"
+1m
 1$
 #1200000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #1220000
-1h
+b10101 !"
+b10101 &"
+b100000 *"
+1m
 1$
 #1240000
-1Y
-b111 d
-0h
+1j
+1*
+b111 i
+0m
 0$
-1n
-13
+1u
+17
 #1260000
-1h
+b10110 !"
+b10110 &"
+b100000 *"
+1m
 1$
 #1280000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #1300000
-1h
+b10111 !"
+b10111 &"
+b100000 *"
+1m
 1$
 #1320000
-b1000 d
-0h
+1^
+b1000 i
+0m
 0$
-1n
-13
+1u
+17
 #1340000
-1h
+b11000 !"
+b11000 &"
+b100000 *"
+1m
 1$
 #1360000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #1380000
-1h
+b11001 !"
+b11001 &"
+b100000 *"
+1m
 1$
 #1400000
-0e
-0)
-b1001 d
-0h
+0j
+0*
+b1001 i
+0m
 0$
-1n
-13
+1u
+17
 #1420000
-1h
+b11010 !"
+b11010 &"
+b100000 *"
+1m
 1$
 #1440000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #1460000
-1h
+b11011 !"
+b11011 &"
+b100000 *"
+1m
 1$
 #1480000
-0Y
-b1010 d
-0h
+0^
+b1010 i
+0m
 0$
-1n
-13
+1u
+17
 #1500000
-1h
+b11100 !"
+b11100 &"
+b100000 *"
+1m
 1$
 #1520000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #1540000
-1h
+b11101 !"
+b11101 &"
+b100000 *"
+1m
 1$
 #1560000
-1e
-1)
-b1011 d
-0h
+b1011 i
+0m
 0$
-1n
-13
+1u
+17
 #1580000
-1h
+b11110 !"
+b11110 &"
+b100000 *"
+1m
 1$
 #1600000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #1620000
-1h
+b11111 !"
+b11111 &"
+b100000 *"
+1m
 1$
 #1640000
-0e
-0)
-1Y
-b1100 d
-0h
+b1100 i
+0m
 0$
-1n
-13
+1u
+17
 #1660000
-1h
+b0 !"
+b0 &"
+b100000 *"
+1m
 1$
 #1680000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #1700000
-1h
+b1111010 ("
+b1111010 )
+b1111010 }
+b1 !"
+b1 &"
+b100000 *"
+1m
 1$
 #1720000
-0Y
-b1101 d
-0h
+b1101 i
+0m
 0$
-1n
-13
+1u
+17
 #1740000
-1h
+b10 !"
+b10 &"
+b100000 *"
+1m
 1$
 #1760000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #1780000
-1h
+b11 !"
+b11 &"
+b100000 *"
+1m
 1$
 #1800000
-b1110 d
-0h
+b1110 i
+0m
 0$
-1n
-13
+1u
+17
 #1820000
-1h
+b100 !"
+b100 &"
+b100000 *"
+1m
 1$
 #1840000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #1860000
-1h
+b101 !"
+b101 &"
+b100000 *"
+1m
 1$
 #1880000
-b1111 d
-0h
+b1111 i
+0m
 0$
-1n
-13
+1u
+17
 #1900000
-1h
+b110 !"
+b110 &"
+b100000 *"
+1m
 1$
 #1920000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #1940000
-1h
+b111 !"
+b111 &"
+b100000 *"
+1m
 1$
 #1960000
-b10000 d
-0h
+b10000 i
+0m
 0$
-1n
-13
+1u
+17
 #1980000
-1h
+b1000 !"
+b1000 &"
+b100000 *"
+1m
 1$
 #2000000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #2020000
-1h
+b1001 !"
+b1001 &"
+b100000 *"
+1m
 1$
 #2040000
-b10001 d
-0h
+b10001 i
+0m
 0$
-1n
-13
+1u
+17
 #2060000
-1h
+b1010 !"
+1{
+b1010 &"
+b0 ("
+b0 )
+b0 }
+b100000 *"
+1m
 1$
 #2080000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #2100000
-1h
+b1011 !"
+0{
+b1011 &"
+1""
+10
+b100000 *"
+1m
 1$
 #2120000
-b10010 d
-0h
+b10010 i
+0m
 0$
-1n
-13
+1u
+17
 #2140000
-1h
+0""
+00
+b1100 !"
+b1100 &"
+b100000 *"
+1m
 1$
 #2160000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #2180000
-1h
+b1101 !"
+b1101 &"
+b100000 *"
+1m
 1$
 #2200000
-b10011 d
-0h
+b10011 i
+0m
 0$
-1n
-13
+1u
+17
 #2220000
-1h
+b1110 !"
+b1110 &"
+b100000 *"
+1m
 1$
 #2240000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #2260000
-1h
+b1111 !"
+b1111 &"
+b100000 *"
+1m
 1$
 #2280000
-b10100 d
-0h
+b10100 i
+0m
 0$
-1n
-13
+1u
+17
 #2300000
-1h
+b10000 !"
+b10000 &"
+b100000 *"
+1m
 1$
 #2320000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #2340000
-1h
+b10001 !"
+b10001 &"
+b100000 *"
+1m
 1$
 #2360000
-b10101 d
-0h
+b10101 i
+0m
 0$
-1n
-13
+1u
+17
 #2380000
-1h
+b10010 !"
+b10010 &"
+b100000 *"
+1m
 1$
 #2400000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #2420000
-1h
+b10011 !"
+b10011 &"
+b100000 *"
+1m
 1$
 #2440000
-b10110 d
-0h
+b10110 i
+0m
 0$
-1n
-13
+1u
+17
 #2460000
-1h
+b10100 !"
+b10100 &"
+b100000 *"
+1m
 1$
 #2480000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #2500000
-1h
+b10101 !"
+b10101 &"
+b100000 *"
+1m
 1$
 #2520000
-b10111 d
-0h
+b10111 i
+0m
 0$
-1n
-13
+1u
+17
 #2540000
-1h
+b10110 !"
+b10110 &"
+b100000 *"
+1m
 1$
 #2560000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #2580000
-1h
+b10111 !"
+b10111 &"
+b100000 *"
+1m
 1$
 #2600000
-b11000 d
-0h
+b11000 i
+0m
 0$
-1n
-13
+1u
+17
 #2620000
-1h
+b11000 !"
+b11000 &"
+b100000 *"
+1m
 1$
 #2640000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #2660000
-1h
+b11001 !"
+b11001 &"
+b100000 *"
+1m
 1$
 #2680000
-b11001 d
-0h
+b11001 i
+0m
 0$
-1n
-13
+1u
+17
 #2700000
-1h
+b11010 !"
+b11010 &"
+b100000 *"
+1m
 1$
 #2720000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #2740000
-1h
+b11011 !"
+b11011 &"
+b100000 *"
+1m
 1$
 #2760000
-b11010 d
-0h
+b11010 i
+0m
 0$
-1n
-13
+1u
+17
 #2780000
-1h
+b11100 !"
+b11100 &"
+b100000 *"
+1m
 1$
 #2800000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #2820000
-1h
+b11101 !"
+b11101 &"
+b100000 *"
+1m
 1$
 #2840000
-b11011 d
-0h
+b11011 i
+0m
 0$
-1n
-13
+1u
+17
 #2860000
-1h
+b11110 !"
+b11110 &"
+b100000 *"
+1m
 1$
 #2880000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #2900000
-1h
+b11111 !"
+b11111 &"
+b100000 *"
+1m
 1$
 #2920000
-b11100 d
-0h
+b11100 i
+0m
 0$
-1n
-13
+1u
+17
 #2940000
-1h
+b0 !"
+b0 &"
+b100000 *"
+1m
 1$
 #2960000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #2980000
-1h
+b1111010 ("
+b1111010 )
+b1111010 }
+b1 !"
+b1 &"
+b100000 *"
+1m
 1$
 #3000000
-b11101 d
-0h
+b11101 i
+0m
 0$
-1n
-13
+1u
+17
 #3020000
-1h
+b10 !"
+b10 &"
+b100000 *"
+1m
 1$
 #3040000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #3060000
-1h
+b11 !"
+b11 &"
+b100000 *"
+1m
 1$
 #3080000
-b11110 d
-0h
+b11110 i
+0m
 0$
-1n
-13
+1u
+17
 #3100000
-1h
+b100 !"
+b100 &"
+b100000 *"
+1m
 1$
 #3120000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #3140000
-1h
+b101 !"
+b101 &"
+b100000 *"
+1m
 1$
 #3160000
-b11111 d
-0h
+b11111 i
+0m
 0$
-1n
-13
+1u
+17
 #3180000
-1h
+b110 !"
+b110 &"
+b100000 *"
+1m
 1$
 #3200000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #3220000
-1h
+b111 !"
+b111 &"
+b100000 *"
+1m
 1$
 #3240000
-1f
+1k
 1&
-b100000 d
-0h
+b100000 i
+0m
 0$
-1n
-13
+1u
+17
 #3260000
-1h
+b1000 !"
+b1000 &"
+b100000 *"
+1m
 1$
 #3280000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #3300000
-1h
+b1001 !"
+b1001 &"
+b100000 *"
+1m
 1$
 #3320000
-xe
-x)
-1W
-1L
-b1 M
-b100001 d
-0h
+xj
+x*
+1\
+1Q
+b1 R
+b100001 i
+0m
 0$
-1n
-13
+1u
+17
 #3321000
-b1101 P
+b1101 U
 #3340000
-1h
+b1010 !"
+1{
+b1010 &"
+b0 ("
+b0 )
+b0 }
+b100000 *"
+1m
 1$
 #3360000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #3380000
-1h
+b1011 !"
+0{
+b1011 &"
+1""
+10
+b100000 *"
+1m
 1$
 #3400000
-0f
+0k
 0&
-0e
-0)
-xY
-0W
-0L
-0h
+0j
+0*
+x^
+0\
+0Q
+0m
 0$
-1n
-13
+1u
+17
 #3401000
-b1100 P
+b1100 U
 #3420000
-1h
+0""
+00
+b1100 !"
+b1100 &"
+b100000 *"
+1m
 1$
 #3440000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #3460000
-1h
+b1101 !"
+b1101 &"
+b100000 *"
+1m
 1$
 #3480000
-1f
+1k
 1&
-xe
-x)
-0Y
-b100010 d
-0h
+xj
+x*
+0^
+b100010 i
+0m
 0$
-1n
-13
+1u
+17
 #3481000
-b1011 P
+b1011 U
 #3500000
-1h
+b1110 !"
+b1110 &"
+b100000 *"
+1m
 1$
 #3520000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #3540000
-1h
+b1111 !"
+b1111 &"
+b100000 *"
+1m
 1$
 #3560000
-xY
-1W
-1L
-b10 M
-b100011 d
-0h
+x^
+1\
+1Q
+b10 R
+b100011 i
+0m
 0$
-1n
-13
+1u
+17
 #3561000
-b111 P
+b111 U
 #3580000
-1h
+b10000 !"
+b10000 &"
+b100000 *"
+1m
 1$
 #3600000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #3620000
-1h
+b10001 !"
+b10001 &"
+b100000 *"
+1m
 1$
 #3640000
-0f
+0k
 0&
-0e
-0)
-1Q
+0j
+0*
+1V
 1%
-0T
-0<
-0h
+0Y
+0A
+0m
 0$
-1n
-13
+1u
+17
 #3660000
-0E
-04
-1h
+0J
+08
+b10010 !"
+b10010 &"
+b100000 *"
+1m
 1$
 #3661000
-b11 A
+b11 F
 #3680000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #3700000
-1B
+1G
 1"
-1h
+b10011 !"
+b10011 &"
+b100000 *"
+1m
 1$
 #3720000
-0Y
-0h
+0^
+0m
 0$
-1n
-13
+1u
+17
 #3721000
-b110 P
+b110 U
 #3740000
-1h
+b10100 !"
+b10100 &"
+b100000 *"
+1m
 1$
 #3760000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #3780000
-1h
+b10101 !"
+b10101 &"
+b100000 *"
+1m
 1$
 #3800000
-1V
+1[
 1!
-0h
+0m
 0$
-1n
-13
+1u
+17
 #3801000
-b1111 P
+b1111 U
 #3820000
-b111 A
-1C
-1,
-1h
+b111 F
+1H
+1.
+b10110 !"
+b10110 &"
+b100000 *"
+1m
 1$
 #3840000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #3860000
-1D
-1.
-0B
+1I
+11
+0G
 0"
-1h
+b10111 !"
+b10111 &"
+b100000 *"
+1m
 1$
 #3880000
-0W
-0L
-0V
-0!
+0\
 0Q
+0[
+0!
+0V
 0%
-0h
+0m
 0$
-1n
-13
+1u
+17
 #3900000
-1h
+b11000 !"
+b11000 &"
+b100000 *"
+1m
 1$
 #3920000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #3940000
-1h
+b11001 !"
+b11001 &"
+b100000 *"
+1m
 1$
 #3960000
-0h
+0m
 0$
-1n
-13
+1u
+17
 #3980000
-1h
+b11010 !"
+b11010 &"
+b100000 *"
+1m
 1$
 #4000000
-0h
+0m
 0$
-0n
-03
+0u
+07
 #4020000
-1h
+b11011 !"
+b11011 &"
+b100000 *"
+1m
 1$
 #4040000
-0h
+0m
 0$
-1n
-13
+1u
+17
