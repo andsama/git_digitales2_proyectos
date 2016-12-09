@@ -11,6 +11,7 @@ module test_physic_block_control
   output reg oNo_response,
   output reg [37:0] oPad_response,
   output reg oAck_in,
+  output reg oIdle_in,
 
   // inputs
   input wire iReset_wrapper,
@@ -20,6 +21,7 @@ module test_physic_block_control
   input wire iPad_enable,
   input wire iLoad_send,
   input wire iStrobe_out,
+  input wire iCommand_timeout, // NUEVA
   input wire [37:0] iResponse,
   input wire iAck_out
 );
@@ -44,12 +46,19 @@ module test_physic_block_control
     #20
     oTransmission_complete = 1;
 
-    #20 // any of those signals in high level, change state
+    // this is to check the interruption
+    //#6
+    //oIdle_in = 1;
+
+    #200 // any of those signals in high level, change state
     oReception_complete = 1;
     //oNo_response = 1;
 
     #20
     oAck_in = 1;
+
+    #4
+    oStrobe_in = 0;
 
     #50
 		$finish;

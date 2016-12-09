@@ -10,6 +10,7 @@ module testbench_physic_block_control;
   wire wNo_response                   ;
   wire [37:0] wPad_response           ;
   wire wAck_in                        ;
+  wire wIdle_in                       ;
 
   wire wReset_wrapper                 ;
   wire wEnable_PTS_wrapper            ;
@@ -18,6 +19,7 @@ module testbench_physic_block_control;
   wire wPad_enable                    ;
   wire wLoad_send                     ;
   wire wStrobe_out                    ;
+  wire wCommand_timeout               ; // NUEVA
   wire [37:0] wResponse               ;
   wire wAck_out                       ;
 
@@ -37,6 +39,7 @@ module testbench_physic_block_control;
     .iNo_response                   ( wNo_response ),
     .iPad_response                  ( wPad_response ),
     .iAck_in                        ( wAck_in ),
+    .iIdle_in                       ( wIdle_in ),
 
     .oReset_wrapper                 ( wReset_wrapper ),
     .oEnable_PTS_wrapper            ( wEnable_PTS_wrapper ),
@@ -45,6 +48,7 @@ module testbench_physic_block_control;
     .oPad_enable                    ( wPad_enable ),
     .oLoad_send                     ( wLoad_send ),
     .oStrobe_out                    ( wStrobe_out ),
+    .oCommand_timeout               ( wCommand_timeout ),
     .oResponse                      ( wResponse ),
     .oAck_out                       ( wAck_out )
 
@@ -61,6 +65,7 @@ module testbench_physic_block_control;
     .oNo_response                   ( wNo_response ),
     .oPad_response                  ( wPad_response ),
     .oAck_in                        ( wAck_in ),
+    .oIdle_in                       ( wIdle_in ),
 
     .iReset_wrapper                 ( wReset_wrapper ),
     .iEnable_PTS_wrapper            ( wEnable_PTS_wrapper ),
@@ -69,6 +74,7 @@ module testbench_physic_block_control;
     .iPad_enable                    ( wPad_enable ),
     .iLoad_send                     ( wLoad_send ),
     .iStrobe_out                    ( wStrobe_out ),
+    .iCommand_timeout               ( wCommand_timeout ),
     .iResponse                      ( wResponse ),
     .iAck_out                       ( wAck_out )
 

@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.62 (w)1999-2014 BSI
-[*] Fri Nov 18 01:11:47 2016
+[*] Fri Dec  9 05:24:17 2016
 [*]
 [dumpfile] "/home/sama/Documents/Cursos/Digitales2/git_digitales2_proyectos/proyecto1/control/testbench_physic_block_control.vcd"
-[dumpfile_mtime] "Fri Nov 18 01:07:00 2016"
-[dumpfile_size] 6544
+[dumpfile_mtime] "Fri Dec  9 05:17:36 2016"
+[dumpfile_size] 9184
 [savefile] "/home/sama/Documents/Cursos/Digitales2/git_digitales2_proyectos/proyecto1/control/physic_block_control.gtkw"
-[timestart] 46490
+[timestart] 236860
 [size] 1366 715
 [pos] 0 26
-*-12.545370 51720 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-12.545370 245710 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] testbench_physic_block_control.
 [sst_width] 213
 [signals_width] 276
@@ -37,7 +37,13 @@ testbench_physic_block_control.wResponse[37:0]
 testbench_physic_block_control.wStrobe_in
 testbench_physic_block_control.wStrobe_out
 testbench_physic_block_control.wTransmission_complete
+testbench_physic_block_control.wIdle_in
 @22
 testbench_physic_block_control.uutPBC1.rCurrentState[3:0]
+testbench_physic_block_control.uutPBC1.rNextState[3:0]
+@24
+testbench_physic_block_control.uutPBC1.rCuenta[5:0]
+@28
+testbench_physic_block_control.wCommand_timeout
 [pattern_trace] 1
 [pattern_trace] 0

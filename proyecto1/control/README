@@ -1,0 +1,6 @@
+Si el segundo bit es 1, el host est ́a haciendo
+uso del canal; caso contrario, es la tarjeta qui ́en se est ́a comunicando.
+
+Las tramas de respuesta poseen una longitud de 48 bits o 136 bits
+
+sennal de timeout enable y timeout en el control CMD?
