@@ -1,0 +1,1388 @@
+$date
+	Thu Dec  8 20:28:55 2016
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module test_data $end
+$var wire 1 ! Ack_in_control $end
+$var wire 1 " Ack_in_phys $end
+$var wire 8 # Blocks [7:0] $end
+$var wire 1 $ Clear_in $end
+$var wire 1 % Clock $end
+$var wire 1 & Complete $end
+$var wire 1 ' Complete_escritura $end
+$var wire 1 ( Complete_lectura $end
+$var wire 32 ) Data_from_FIFO [31:0] $end
+$var wire 32 * Data_from_FIFO_temp [31:0] $end
+$var wire 1 + Data_pin_in $end
+$var wire 1 , Data_pin_out $end
+$var wire 32 - Data_to_FIFO [31:0] $end
+$var wire 32 . Data_to_FIFO_temp [31:0] $end
+$var wire 1 / Data_transfer_complete $end
+$var wire 1 0 Empty_out $end
+$var wire 1 1 FIFO_ok $end
+$var wire 1 2 Full_out $end
+$var wire 1 3 Idle $end
+$var wire 1 4 MultipleData $end
+$var wire 1 5 NewData $end
+$var wire 1 6 ReadEn_in $end
+$var wire 1 7 Read_enable $end
+$var wire 1 8 Reset $end
+$var wire 1 9 SD_clock $end
+$var wire 1 : Send $end
+$var wire 1 ; Serial_ready $end
+$var wire 1 < Service $end
+$var wire 1 = Timeout $end
+$var wire 1 > Timeout_enable $end
+$var wire 1 ? Timeout_oc $end
+$var wire 16 @ Timeout_reg [15:0] $end
+$var wire 1 A WriteEn_in $end
+$var wire 1 B WriteRead $end
+$var wire 1 C Write_enable $end
+$scope module Control_datos $end
+$var wire 1 ! iAck $end
+$var wire 4 D iBlocks [3:0] $end
+$var wire 1 % iClock $end
+$var wire 1 & iComplete $end
+$var wire 1 1 iFIFO_ok $end
+$var wire 1 4 iMultipleData $end
+$var wire 1 5 iNewData $end
+$var wire 1 8 iReset $end
+$var wire 1 ; iSerial_ready $end
+$var wire 1 = iTimeout $end
+$var wire 1 > iTimeout_enable $end
+$var wire 16 E iTimeout_reg [15:0] $end
+$var wire 1 B iWriteRead $end
+$var wire 1 " oAck $end
+$var wire 4 F oBlocks [3:0] $end
+$var wire 1 / oData_transfer_complete $end
+$var wire 1 3 oIdle $end
+$var wire 1 4 oMultipleData $end
+$var wire 1 : oSend $end
+$var wire 16 G oTimeout_val [15:0] $end
+$var wire 1 B oWriteRead $end
+$var reg 3 H rState [2:0] $end
+$var reg 1 I rTemp_Ack $end
+$var reg 1 J rTemp_Data_Complete $end
+$var reg 1 K rTemp_Idle $end
+$var reg 1 L rTemp_send $end
+$scope begin FSM_control $end
+$upscope $end
+$upscope $end
+$scope module Capa_Fisica_datos $end
+$var wire 1 " iAck $end
+$var wire 8 M iBlocks [7:0] $end
+$var wire 1 % iClock $end
+$var wire 32 N iData_from_FIFO [31:0] $end
+$var wire 1 + iData_pin $end
+$var wire 1 3 iIdle $end
+$var wire 1 4 iMultipleData $end
+$var wire 1 8 iReset $end
+$var wire 1 9 iSD_clock $end
+$var wire 1 : iSend $end
+$var wire 1 < iService $end
+$var wire 16 O iTimeout_reg [15:0] $end
+$var wire 1 B iWriteRead $end
+$var wire 1 ! oAck $end
+$var wire 1 & oComplete $end
+$var wire 1 ' oComplete_escritura $end
+$var wire 1 ( oComplete_lectura $end
+$var wire 1 , oData_pin $end
+$var wire 32 P oData_to_FIFO [31:0] $end
+$var wire 1 Q oPad_enable $end
+$var wire 1 7 oRead_enable $end
+$var wire 1 R oRead_reset $end
+$var wire 1 ; oSerial_ready $end
+$var wire 1 ? oTimeout_oc $end
+$var wire 1 C oWrite_enable $end
+$var wire 1 S oWrite_reset $end
+$var integer 32 T Contador [31:0] $end
+$var reg 1 U TEMP $end
+$var reg 1 V rRead_reset $end
+$var reg 4 W rState [3:0] $end
+$var reg 1 X rTemp_Complete $end
+$var reg 1 Y rTemp_Read_enable $end
+$var reg 1 Z rTemp_Serial_ready $end
+$var reg 1 [ rTemp_Write_enable $end
+$var reg 1 \ rTemp_enable_pad $end
+$var reg 1 ] rTemp_oAck $end
+$var reg 1 ^ rWrite_reset $end
+$scope module pad_probando $end
+$var wire 1 + iData $end
+$var wire 1 Q iEnable $end
+$var wire 1 _ iIo_port $end
+$var wire 1 B iOut_in $end
+$var wire 1 9 iSD_clock $end
+$var wire 1 , oData $end
+$var reg 1 ` a $end
+$var reg 1 a b $end
+$upscope $end
+$scope module lectura $end
+$var wire 1 b iEnable $end
+$var wire 8 c iFrame_size [7:0] $end
+$var wire 1 R iReset $end
+$var wire 1 9 iSD_clock $end
+$var wire 1 , iSerial $end
+$var wire 1 ( oComplete $end
+$var wire 32 d oParallel [31:0] $end
+$var integer 32 e i [31:0] $end
+$var reg 32 f rA [31:0] $end
+$var reg 1 g rB $end
+$upscope $end
+$scope module escritura $end
+$var wire 1 C iEnable $end
+$var wire 8 h iFrame_size [7:0] $end
+$var wire 1 4 iMultipleData $end
+$var wire 32 i iParallel [31:0] $end
+$var wire 1 S iReset $end
+$var wire 1 9 iSD_clock $end
+$var wire 1 ' oComplete $end
+$var wire 1 + oSerial $end
+$var wire 4 j oSerial_multi [3:0] $end
+$var integer 32 k j [31:0] $end
+$var reg 1 l rC $end
+$var reg 1 m rD $end
+$upscope $end
+$scope begin FSM_fisica $end
+$upscope $end
+$upscope $end
+$scope module probador $end
+$var wire 1 & Complete $end
+$var wire 1 + Data_pin_in $end
+$var wire 1 , Data_pin_out $end
+$var wire 1 / Data_transfer_complete $end
+$var wire 1 3 Idle $end
+$var wire 1 : Send $end
+$var wire 1 ; Serial_ready $end
+$var wire 1 = Timeout $end
+$var reg 8 n Blocks [7:0] $end
+$var reg 1 o Clear_in $end
+$var reg 1 p Clock $end
+$var reg 32 q Data_from_FIFO [31:0] $end
+$var reg 32 r Data_to_FIFO_temp [31:0] $end
+$var reg 1 s FIFO_ok $end
+$var reg 1 t MultipleData $end
+$var reg 1 u NewData $end
+$var reg 1 v ReadEn_in $end
+$var reg 1 w Reset $end
+$var reg 1 x SD_clock $end
+$var reg 1 y Service $end
+$var reg 1 z Timeout_enable $end
+$var reg 16 { Timeout_reg [15:0] $end
+$var reg 1 | WriteEn_in $end
+$var reg 1 } WriteRead $end
+$upscope $end
+$scope module MyFIFO $end
+$var wire 1 $ Clear_in $end
+$var wire 32 ~ Data_in [31:0] $end
+$var wire 1 !" EqualAddresses $end
+$var wire 1 "" NextReadAddressEn $end
+$var wire 1 #" NextWriteAddressEn $end
+$var wire 1 $" PresetEmpty $end
+$var wire 1 %" PresetFull $end
+$var wire 1 9 RClk $end
+$var wire 1 6 ReadEn_in $end
+$var wire 1 &" Rst_Status $end
+$var wire 1 '" Set_Status $end
+$var wire 1 % WClk $end
+$var wire 1 A WriteEn_in $end
+$var wire 8 (" pNextWordToRead [7:0] $end
+$var wire 8 )" pNextWordToWrite [7:0] $end
+$var reg 32 *" Data_out [31:0] $end
+$var reg 1 +" Empty_out $end
+$var reg 1 ," Full_out $end
+$var reg 1 -" Status $end
+$scope module GrayCounter_pWr $end
+$var wire 1 $ Clear_in $end
+$var wire 1 % Clk $end
+$var wire 1 #" Enable_in $end
+$var reg 4 ." BinaryCount [3:0] $end
+$var reg 4 /" GrayCount_out [3:0] $end
+$upscope $end
+$scope module GrayCounter_pRd $end
+$var wire 1 $ Clear_in $end
+$var wire 1 9 Clk $end
+$var wire 1 "" Enable_in $end
+$var reg 4 0" BinaryCount [3:0] $end
+$var reg 4 1" GrayCount_out [3:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx 1"
+bx 0"
+bx /"
+bx ."
+0-"
+x,"
+x+"
+bx *"
+b0xxxx )"
+b0xxxx ("
+0'"
+0&"
+0%"
+x$"
+x#"
+0""
+x!"
+b1111010 ~
+1}
+1|
+b1000110 {
+0z
+0y
+0x
+1w
+0v
+0u
+0t
+0s
+b1111010 r
+b1011010000 q
+0p
+1o
+b1 n
+xm
+xl
+b0 k
+bz j
+b1011010000 i
+b1 h
+xg
+bx f
+b0 e
+bx d
+b1 c
+xb
+xa
+x`
+x_
+x^
+x]
+x\
+x[
+xZ
+xY
+xX
+bx W
+xV
+xU
+b0 T
+xS
+xR
+xQ
+bx P
+b1000110 O
+b1011010000 N
+b1 M
+xL
+xK
+xJ
+xI
+bx H
+b1000110 G
+bz F
+b1000110 E
+b1 D
+xC
+1B
+1A
+b1000110 @
+z?
+0>
+z=
+0<
+x;
+x:
+09
+18
+x7
+06
+05
+04
+x3
+x2
+01
+x0
+x/
+b1111010 .
+bx -
+x,
+x+
+bx *
+b1011010000 )
+x(
+x'
+x&
+0%
+1$
+b1 #
+x"
+x!
+$end
+#20000
+1#"
+0K
+03
+0I
+0"
+0L
+0:
+0J
+0/
+b0 /"
+b0 )"
+b1 ."
+0,"
+02
+1p
+1%
+#21000
+b111 H
+#40000
+1$"
+0m
+0'
+0l
+0+
+b0 f
+b0 -
+b0 P
+b0 d
+b0 1"
+1!"
+b0 ("
+b1 0"
+1+"
+10
+0p
+0%
+0w
+08
+1x
+19
+#41000
+b1111 W
+#60000
+1K
+13
+1p
+1%
+#80000
+0p
+0%
+0x
+09
+#100000
+1p
+1%
+#120000
+0`
+0^
+0S
+0]
+0!
+0X
+0&
+1Z
+1;
+0[
+0C
+0p
+0%
+1x
+19
+#140000
+1p
+1%
+#150000
+0o
+0$
+#160000
+0p
+0%
+0x
+09
+#180000
+0$"
+b1 /"
+0!"
+b1 )"
+b10 ."
+1p
+1%
+#200000
+0+"
+00
+0p
+0%
+1x
+19
+1y
+1<
+1u
+15
+#201000
+b1101 W
+#220000
+b11 /"
+b11 )"
+b11 ."
+1p
+1%
+#221000
+b110 H
+#240000
+0p
+0%
+0x
+09
+#260000
+0K
+03
+b10 /"
+b10 )"
+b100 ."
+1p
+1%
+#261000
+b101 H
+#280000
+1\
+1Q
+0p
+0%
+1x
+19
+#300000
+b110 /"
+b110 )"
+b101 ."
+1p
+1%
+#320000
+0p
+0%
+0x
+09
+#340000
+b111 /"
+b111 )"
+b110 ."
+1p
+1%
+#350000
+1""
+0#"
+b10010110 r
+b10010110 .
+b10010110 ~
+1v
+16
+0|
+0A
+#360000
+b1 1"
+b1 ("
+b10 0"
+b1111010 *"
+b1111010 *
+0p
+0%
+1x
+19
+#380000
+1p
+1%
+#400000
+0p
+0%
+0x
+09
+0u
+05
+#420000
+1p
+1%
+#440000
+b11 1"
+b11 ("
+b11 0"
+0p
+0%
+1x
+19
+#460000
+1p
+1%
+#480000
+0p
+0%
+0x
+09
+#500000
+b101 /"
+b101 )"
+b111 ."
+0""
+1#"
+1p
+1%
+0v
+06
+1|
+1A
+0y
+0<
+#520000
+0p
+0%
+1x
+19
+#540000
+b100 /"
+b100 )"
+b1000 ."
+1p
+1%
+#560000
+0p
+0%
+0x
+09
+#580000
+b1100 /"
+b1100 )"
+b1001 ."
+1p
+1%
+#600000
+0p
+0%
+1x
+19
+1s
+11
+#620000
+b1101 /"
+b1101 )"
+b1010 ."
+1p
+1%
+#621000
+b100 H
+#640000
+0p
+0%
+0x
+09
+#660000
+1L
+1:
+b1111 /"
+b1111 )"
+b1011 ."
+1p
+1%
+#680000
+0p
+0%
+1x
+19
+#681000
+b1100 W
+#700000
+b0 /"
+b0 )"
+b1 ."
+1p
+1%
+1o
+1$
+b1011101110 r
+b1011101110 .
+b1011101110 ~
+#720000
+0p
+0%
+0x
+09
+#740000
+1p
+1%
+#750000
+1""
+0#"
+1v
+16
+0|
+0A
+#760000
+0""
+1+"
+10
+b1 k
+1$"
+1[
+1C
+b0 1"
+1!"
+b0 ("
+b1 0"
+0p
+0%
+1x
+19
+#761000
+b1011 W
+#780000
+1p
+1%
+#800000
+0p
+0%
+0x
+09
+0s
+01
+#820000
+1p
+1%
+#840000
+b10 k
+0p
+0%
+1x
+19
+#860000
+1p
+1%
+#880000
+0p
+0%
+0x
+09
+#900000
+1p
+1%
+0o
+0$
+#920000
+b11 k
+0p
+0%
+1x
+19
+#940000
+1p
+1%
+#960000
+0p
+0%
+0x
+09
+#980000
+1p
+1%
+#1000000
+b100 k
+0p
+0%
+1x
+19
+#1020000
+1p
+1%
+#1040000
+0p
+0%
+0x
+09
+#1060000
+1p
+1%
+#1080000
+1l
+1+
+b101 k
+0p
+0%
+1x
+19
+#1100000
+1p
+1%
+#1120000
+0p
+0%
+0x
+09
+#1140000
+1p
+1%
+#1160000
+0l
+0+
+1`
+b110 k
+0p
+0%
+1x
+19
+#1180000
+1p
+1%
+#1200000
+0p
+0%
+0x
+09
+#1220000
+1p
+1%
+#1240000
+1l
+1+
+0`
+b111 k
+0p
+0%
+1x
+19
+#1260000
+1p
+1%
+#1280000
+0p
+0%
+0x
+09
+#1300000
+1p
+1%
+#1320000
+1`
+b1000 k
+0p
+0%
+1x
+19
+#1340000
+1p
+1%
+#1360000
+0p
+0%
+0x
+09
+#1380000
+1p
+1%
+#1400000
+0l
+0+
+b1001 k
+0p
+0%
+1x
+19
+#1420000
+1p
+1%
+#1440000
+0p
+0%
+0x
+09
+#1460000
+1p
+1%
+#1480000
+1l
+1+
+0`
+b1010 k
+0p
+0%
+1x
+19
+#1500000
+1p
+1%
+#1520000
+0p
+0%
+0x
+09
+#1540000
+1p
+1%
+#1560000
+0l
+0+
+1`
+b1011 k
+0p
+0%
+1x
+19
+#1580000
+1p
+1%
+#1600000
+0p
+0%
+0x
+09
+#1620000
+1p
+1%
+#1640000
+0`
+b1100 k
+0p
+0%
+1x
+19
+#1660000
+1p
+1%
+#1680000
+0p
+0%
+0x
+09
+#1700000
+1p
+1%
+#1720000
+b1101 k
+0p
+0%
+1x
+19
+#1740000
+1p
+1%
+#1760000
+0p
+0%
+0x
+09
+#1780000
+1p
+1%
+#1800000
+b1110 k
+0p
+0%
+1x
+19
+#1820000
+1p
+1%
+#1840000
+0p
+0%
+0x
+09
+#1860000
+1p
+1%
+#1880000
+b1111 k
+0p
+0%
+1x
+19
+#1900000
+1p
+1%
+#1920000
+0p
+0%
+0x
+09
+#1940000
+1p
+1%
+#1960000
+b10000 k
+0p
+0%
+1x
+19
+#1980000
+1p
+1%
+#2000000
+0p
+0%
+0x
+09
+#2020000
+1p
+1%
+#2040000
+b10001 k
+0p
+0%
+1x
+19
+#2060000
+1p
+1%
+#2080000
+0p
+0%
+0x
+09
+#2100000
+1p
+1%
+#2120000
+b10010 k
+0p
+0%
+1x
+19
+#2140000
+1p
+1%
+#2160000
+0p
+0%
+0x
+09
+#2180000
+1p
+1%
+#2200000
+b10011 k
+0p
+0%
+1x
+19
+#2220000
+1p
+1%
+#2240000
+0p
+0%
+0x
+09
+#2260000
+1p
+1%
+#2280000
+b10100 k
+0p
+0%
+1x
+19
+#2300000
+1p
+1%
+#2320000
+0p
+0%
+0x
+09
+#2340000
+1p
+1%
+#2360000
+b10101 k
+0p
+0%
+1x
+19
+#2380000
+1p
+1%
+#2400000
+0p
+0%
+0x
+09
+#2420000
+1p
+1%
+#2440000
+b10110 k
+0p
+0%
+1x
+19
+#2460000
+1p
+1%
+#2480000
+0p
+0%
+0x
+09
+#2500000
+1p
+1%
+#2520000
+b10111 k
+0p
+0%
+1x
+19
+#2540000
+1p
+1%
+#2560000
+0p
+0%
+0x
+09
+#2580000
+1p
+1%
+#2600000
+b11000 k
+0p
+0%
+1x
+19
+#2620000
+1p
+1%
+#2640000
+0p
+0%
+0x
+09
+#2660000
+1p
+1%
+#2680000
+b11001 k
+0p
+0%
+1x
+19
+#2700000
+1p
+1%
+#2720000
+0p
+0%
+0x
+09
+#2740000
+1p
+1%
+#2760000
+b11010 k
+0p
+0%
+1x
+19
+#2780000
+1p
+1%
+#2800000
+0p
+0%
+0x
+09
+#2820000
+1p
+1%
+#2840000
+b11011 k
+0p
+0%
+1x
+19
+#2860000
+1p
+1%
+#2880000
+0p
+0%
+0x
+09
+#2900000
+1p
+1%
+#2920000
+b11100 k
+0p
+0%
+1x
+19
+#2940000
+1p
+1%
+#2960000
+0p
+0%
+0x
+09
+#2980000
+1p
+1%
+#3000000
+b11101 k
+0p
+0%
+1x
+19
+#3020000
+1p
+1%
+#3040000
+0p
+0%
+0x
+09
+#3060000
+1p
+1%
+#3080000
+b11110 k
+0p
+0%
+1x
+19
+#3100000
+1p
+1%
+#3120000
+0p
+0%
+0x
+09
+#3140000
+1p
+1%
+#3160000
+b11111 k
+0p
+0%
+1x
+19
+#3180000
+1p
+1%
+#3200000
+0p
+0%
+0x
+09
+#3220000
+1p
+1%
+#3240000
+1m
+1'
+b0 k
+0p
+0%
+1x
+19
+#3260000
+1p
+1%
+#3280000
+0p
+0%
+0x
+09
+#3300000
+1p
+1%
+#3320000
+0m
+0'
+1^
+1S
+b1 T
+b1 k
+0p
+0%
+1x
+19
+#3321000
+b1101 W
+#3340000
+1p
+1%
+#3360000
+0p
+0%
+0x
+09
+#3380000
+1p
+1%
+#3400000
+0^
+0S
+0p
+0%
+1x
+19
+#3401000
+b1100 W
+#3420000
+1p
+1%
+#3440000
+0p
+0%
+0x
+09
+#3460000
+1p
+1%
+#3480000
+b10 k
+0p
+0%
+1x
+19
+#3481000
+b1011 W
+#3500000
+1p
+1%
+#3520000
+0p
+0%
+0x
+09
+#3540000
+1p
+1%
+#3560000
+b11 k
+0p
+0%
+1x
+19
+#3580000
+1p
+1%
+#3600000
+0p
+0%
+0x
+09
+#3620000
+1p
+1%
+#3640000
+b100 k
+0p
+0%
+1x
+19
+#3660000
+1p
+1%
+#3680000
+0p
+0%
+0x
+09
+#3700000
+1p
+1%
+#3720000
+1l
+1+
+b101 k
+0p
+0%
+1x
+19
+#3740000
+1p
+1%
+#3760000
+0p
+0%
+0x
+09
+#3780000
+1p
+1%
+#3800000
+0l
+0+
+1`
+b110 k
+0p
+0%
+1x
+19
+#3820000
+1p
+1%
+#3840000
+0p
+0%
+0x
+09
+#3860000
+1p
+1%
+#3880000
+1l
+1+
+0`
+b111 k
+0p
+0%
+1x
+19
+#3900000
+1p
+1%
+#3920000
+0p
+0%
+0x
+09
+#3940000
+1p
+1%
+#3960000
+1`
+b1000 k
+0p
+0%
+1x
+19
+#3980000
+1p
+1%
+#4000000
+0p
+0%
+0x
+09
+#4020000
+1p
+1%
+#4040000
+0l
+0+
+b1001 k
+0p
+0%
+1x
+19
