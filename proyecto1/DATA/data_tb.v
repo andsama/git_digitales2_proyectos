@@ -118,23 +118,24 @@ data_control Control_datos
       .Data_pin_in(Data_pin_in),
       .WriteEn_in(WriteEn_in),
       .ReadEn_in(ReadEn_in),
+      .Clear_in(Clear_in),
       .Data_pin_out(Data_pin_out)
     );
 
-  /*aFifo MyFIFO
+  aFifo MyFIFO
     (
       .Data_out(Data_from_FIFO_temp),
       .Empty_out(Empty_out),
       .ReadEn_in(ReadEn_in),
-      .RClk(Clock),
+      .RClk(SD_clock),
       .Data_in(Data_to_FIFO_temp),
       .Full_out(Full_out),
       .WriteEn_in(WriteEn_in),
       .WClk(Clock),
-      .Clear_in(1'b0)
+      .Clear_in(Clear_in)
     );
 
-    fifo MyFIFO
+    /*fifo MyFIFO
     (
       .clk(Clock),
       .rst(1'b0),
@@ -157,7 +158,7 @@ data_control Control_datos
       .rd(1'b1),
       .empty(Empty_out),
       .full(Full_out)
-    );*/
+    );
 
     cfifo MyFIFO
     (
@@ -168,7 +169,7 @@ data_control Control_datos
       .outData(Data_from_FIFO_temp),
       .out_data(WriteEn_in),
       .full(Full_out)
-    );
+    );*/
 
 
 endmodule    //Test bench de data

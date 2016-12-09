@@ -227,6 +227,7 @@ parallel_serial escritura
   .iSD_clock(iSD_clock),
   .iParallel(iData_from_FIFO),
   .oSerial(iData_pin),
+  .iMultipleData(iMultipleData),
   .oComplete(oComplete_escritura)
 );
 
@@ -385,6 +386,7 @@ reg rB;         //Para guardar oComplete
           i = i + 1;
           if (i>=32) begin
               rB <= 1;
+              i <= 0;
           end
           else begin
               rB <= 0;
@@ -433,6 +435,7 @@ module parallel_serial
   input wire iReset,
   input wire iSD_clock,
   input wire [31:0] iParallel,
+  input wire iMultipleData,
   output wire oSerial,
   output wire [3:0] oSerial_multi,
   output wire oComplete
@@ -442,49 +445,49 @@ reg rC;  //Para guardar resultados Seriales
 reg [3:0] rE;  //Para Multitrama
 reg rD;  //Para guardar oComplete
 
-//Para trama:
-integer j=0;
-always @ (posedge iSD_clock && iEnable) begin
-  if (~iReset) begin
-      rC <= iParallel[j];
-      j = j + 1;
-      if (j>=32) begin
-          rD <= 1;
-      end
-      else begin
-          rD <= 0;
-      end
-  end
-  else begin
-    rC <= 0;
-    rD <= 0;
-  end
+  //Para trama:
+  integer j=0;
+  always @ (posedge iSD_clock && iEnable) begin
+    if (~iReset) begin
+        rC <= iParallel[j];
+        j = j + 1;
+        if (j>=32) begin
+            rD <= 1;
+            j <= 0;
+        end
+        else begin
+            rD <= 0;
+        end
+    end
+    else begin
+      rC <= 0;
+      rD <= 0;
+    end
 end
-
-assign oSerial = rC;
-assign oComplete = rD;
+  assign oSerial = rC;
+  assign oComplete = rD;
 
 //Para Multitrama:
-/*integer j;
-always @ (posedge iSD_clock) begin
-  if (~iReset) begin
-  for (j=0; j <= 7; j = j + 1) begin
-      rE <= iParallel[j*4+:3];
-      if (j>=7) begin
-          rD <= 1;
-      end
-      else begin
-          rD <= 0;
-      end
+  /*integer i=0;
+  always @ (posedge iSD_clock && iEnable) begin
+    if (~iReset) begin
+        rE <= iParallel[i*4+:3];
+        i = i + 1;
+        if (i>=7) begin
+            rD <= 1;
+        end
+        else begin
+            rD <= 0;
+        end
+    end
+    else begin
+      rE <= 0;
+    end
   end
-  end
-  else begin
-    rE <= 0;
-  end
-end
 
-assign oSerial_multi = rE;
-assign oComplete = rD;*/
+  assign oSerial_multi = rE;
+  assign oComplete = rD;*/
+
 
 endmodule // Para pasar info de paralelo a serial
 

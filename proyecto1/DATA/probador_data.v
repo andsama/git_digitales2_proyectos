@@ -38,27 +38,48 @@ module probador_data
     output wire Idle,                //Para decir a capa física que vaya al estado idle
     output Service,        //Para solicitar servicio
     output [31:0] Data_from_FIFO,
-    output [7:0] Data_to_FIFO_temp,
+    output [31:0] Data_to_FIFO_temp,
     output WriteEn_in,
     output ReadEn_in,
+    output Clear_in,
     output wire Data_pin_in,
     output wire Data_pin_out
   );
 
-  reg WriteEn_in = 0;
+  reg WriteEn_in = 1;
    initial begin
-     # 400  WriteEn_in = 1;
+     # 350  WriteEn_in = 0;
+     # 150  WriteEn_in = 1;
+     # 250  WriteEn_in = 0;
      # 4000 $finish;
   end
 
-  reg ReadEn_in = 1;
+  reg ReadEn_in = 0;
    initial begin
-     # 400  ReadEn_in = 0;
+   # 350  ReadEn_in = 1;
+   # 150  ReadEn_in = 0;
+   # 250  ReadEn_in = 1;
      # 4000 $finish;
   end
 
-  reg Data_to_FIFO_temp = 122;
-  reg Data_from_FIFO = 200;
+  reg [31:0] Data_to_FIFO_temp = 122;
+  initial begin
+    # 350  Data_to_FIFO_temp = 150;
+    # 350  Data_to_FIFO_temp = 750;
+    # 4000 $finish;
+ end
+
+ reg Clear_in = 1;
+ initial begin
+# 150  Clear_in = 0;
+# 150 Clear_in = 0;
+# 250  Clear_in = 0;
+# 150  Clear_in = 1;
+# 200  Clear_in = 0;
+# 4000 $finish;
+end
+
+  reg Data_from_FIFO = 720;
 
   reg Clock = 0;
   always #20 Clock = !Clock;         //50 MHz
