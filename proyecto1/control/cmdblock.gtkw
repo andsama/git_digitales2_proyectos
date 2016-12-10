@@ -1,0 +1,98 @@
+[*]
+[*] GTKWave Analyzer v3.3.62 (w)1999-2014 BSI
+[*] Sat Dec 10 07:08:57 2016
+[*]
+[dumpfile] "/home/sama/Documents/Cursos/Digitales2/git_digitales2_proyectos/proyecto1/control/testbench_cmdblock.vcd"
+[dumpfile_mtime] "Sat Dec 10 04:53:02 2016"
+[dumpfile_size] 31252
+[savefile] "/home/sama/Documents/Cursos/Digitales2/git_digitales2_proyectos/proyecto1/control/cmdblock.gtkw"
+[timestart] 16350
+[size] 1366 715
+[pos] -1 -1
+*-11.000000 20000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] testbench_cmdblock.
+[treeopen] testbench_cmdblock.uutCmdB1.
+[sst_width] 258
+[signals_width] 348
+[sst_expanded] 1
+[sst_vpaned_height] 195
+@200
+-
+@28
+testbench_cmdblock.wClock_SD
+testbench_cmdblock.wClock_host
+@22
+testbench_cmdblock.wCmd_argument[31:0]
+testbench_cmdblock.wCmd_index[5:0]
+@28
+testbench_cmdblock.wCommand_complete
+testbench_cmdblock.wCommand_index_error
+testbench_cmdblock.wNew_command
+@29
+testbench_cmdblock.wReset
+@28
+testbench_cmdblock.wSerial_from_card
+testbench_cmdblock.wTimeout_enable
+@200
+-
+-Response
+@22
+testbench_cmdblock.wResponse[47:0]
+@200
+-
+-CMD Control
+@24
+testbench_cmdblock.uutCmdB1.uutCmdC1.rCurrentState[1:0]
+@28
+testbench_cmdblock.uutCmdB1.uutCmdC1.iAck_in
+testbench_cmdblock.uutCmdB1.uutCmdC1.iNew_command
+testbench_cmdblock.uutCmdB1.uutCmdC1.iStrobe_in
+testbench_cmdblock.uutCmdB1.uutCmdC1.iTimeout
+testbench_cmdblock.uutCmdB1.uutCmdC1.iTimeout_enable
+testbench_cmdblock.uutCmdB1.uutCmdC1.oAck_out
+@22
+testbench_cmdblock.uutCmdB1.uutCmdC1.oCmd_out[47:0]
+@28
+testbench_cmdblock.uutCmdB1.uutCmdC1.oCommand_complete
+testbench_cmdblock.uutCmdB1.uutCmdC1.oCommand_index_error
+testbench_cmdblock.uutCmdB1.uutCmdC1.oIdle_out
+testbench_cmdblock.uutCmdB1.uutCmdC1.oStrobe_out
+@200
+-
+-Physic BC
+@24
+testbench_cmdblock.uutCmdB1.uutPBC1.rCurrentState[3:0]
+@28
+testbench_cmdblock.uutCmdB1.uutPBC1.iAck_in
+testbench_cmdblock.uutCmdB1.uutPBC1.iIdle_in
+testbench_cmdblock.uutCmdB1.uutPBC1.iReception_complete
+testbench_cmdblock.uutCmdB1.uutPBC1.iStrobe_in
+testbench_cmdblock.uutCmdB1.uutPBC1.iTransmission_complete
+testbench_cmdblock.uutCmdB1.uutPBC1.oAck_out
+testbench_cmdblock.uutCmdB1.uutPBC1.oCommand_timeout
+testbench_cmdblock.uutCmdB1.uutPBC1.oEnable_PTS_wrapper
+testbench_cmdblock.uutCmdB1.uutPBC1.oEnable_STP_wrapper
+testbench_cmdblock.uutCmdB1.uutPBC1.oStrobe_out
+@22
+testbench_cmdblock.uutCmdB1.uutPBC1.rCuenta[5:0]
+@200
+-
+-PTS
+@28
+testbench_cmdblock.uutCmdB1.uutParallel_serial1.iEnable
+@22
+testbench_cmdblock.uutCmdB1.uutParallel_serial1.iParallel[47:0]
+@28
+testbench_cmdblock.uutCmdB1.uutParallel_serial1.oSerial
+testbench_cmdblock.uutCmdB1.uutParallel_serial1.oComplete
+@200
+-STP
+@28
+testbench_cmdblock.uutCmdB1.uutSerial_parallel1.iEnable
+@22
+testbench_cmdblock.uutCmdB1.uutSerial_parallel1.oParallel[47:0]
+@28
+testbench_cmdblock.uutCmdB1.uutSerial_parallel1.iSerial
+testbench_cmdblock.uutCmdB1.uutSerial_parallel1.oComplete
+[pattern_trace] 1
+[pattern_trace] 0

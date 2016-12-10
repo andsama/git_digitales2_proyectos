@@ -8,7 +8,7 @@ module test_cmdcontrol
   output reg oNew_command,
   output reg [5:0] oCmd_index,
   output reg [31:0] oCmd_argument,
-  output reg [37:0] oCmd_in,
+  output reg [47:0] oCmd_in,
   output reg oStrobe_in,
   output reg oAck_in,
 
@@ -20,10 +20,10 @@ module test_cmdcontrol
   input wire iStrobe_out,
   input wire iAck_out,
   input wire iCommand_complete,
-  input wire [37:0] iResponse,
+  input wire [47:0] iResponse,
 
   input wire iCommand_index_error,
-  input wire [37:0] iCmd_out
+  input wire [47:0] iCmd_out
 );
 
 	always #1 oClock_host = !oClock_host;
@@ -36,8 +36,8 @@ module test_cmdcontrol
     oCmd_argument = 32'd5;
     oTimeout = 0;
     oTimeout_enable = 1;
-    //oCmd_in = 38'h3FFFFFFFFF; // para generar el index error
-    oCmd_in = 38'hFF;
+    oCmd_in = 48'hFFFFFFFFFFFF; // para generar el index error
+    //oCmd_in = 48'hFF;
 
 		#50
 		oReset = 1;

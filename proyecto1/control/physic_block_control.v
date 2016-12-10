@@ -10,7 +10,7 @@
 `define STATE_WAIT_ACK                  6
 `define STATE_SEND_ACK                  7
 
-module physic_block_control 
+module physic_block_control
 (
   // inputs
   input wire iClock_SD,
@@ -19,11 +19,13 @@ module physic_block_control
   input wire iTransmission_complete,
   input wire iReception_complete,
   input wire iNo_response,
-  input wire [37:0] iPad_response,
+  input wire [47:0] iPad_response,
   input wire iAck_in,
   input wire iIdle_in,
+  input wire [47:0] iCommand_from_CC,
 
   // outputs
+  output reg [47:0] oCommand_to_PTS,
   output reg oReset_wrapper,
   output reg oEnable_PTS_wrapper, // parallel to serial
   output reg oEnable_STP_wrapper, // Serial to parallel
@@ -32,7 +34,7 @@ module physic_block_control
   output reg oLoad_send,
   output reg oStrobe_out,
   output reg oCommand_timeout, // NUEVA
-  output reg [37:0] oResponse,
+  output reg [47:0] oResponse,
   output reg oAck_out
 );
 
@@ -79,7 +81,7 @@ begin
     oPad_enable = 0;
     oLoad_send = 0;
     oStrobe_out = 0;
-    oResponse = 38'd0;
+    oResponse = 48'd0;
     oAck_out = 0;
     oCommand_timeout = 0;
 
@@ -100,8 +102,10 @@ begin
 	`STATE_LOAD_COMMAND:
 	begin
     oEnable_PTS_wrapper = 1;
+    oReset_wrapper = 0;
     oPad_stable = 1; // estas sennales que van al PAD no se ocupan
     oPad_enable = 1;
+    oCommand_to_PTS = iCommand_from_CC;
     rNextState = `STATE_SEND_COMMAND;
 	end
   //------------------------------------------
@@ -154,8 +158,8 @@ begin
     oPad_stable = 0;
     oPad_enable = 0;
     oLoad_send = 0;
-    oStrobe_out = 0;
-    oResponse = 38'd0;
+    oStrobe_out = 1; // arreglo
+    //oResponse = 48'd0;
     oAck_out = 0;
     oCommand_timeout = 0;
 

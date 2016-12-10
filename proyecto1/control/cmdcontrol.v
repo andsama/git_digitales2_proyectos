@@ -6,7 +6,7 @@
 `define STATE_SETTINGS_OUTPUTS 	        2
 `define STATE_PROCESSING 	              3
 
-module cmdcontrol // solo no implement'e serial ready input
+module cmdcontrol
 (
   // inputs
   input wire iClock_host,
@@ -14,7 +14,7 @@ module cmdcontrol // solo no implement'e serial ready input
   input wire iNew_command,
   input wire [5:0] iCmd_index,
   input wire [31:0] iCmd_argument,
-  input wire [37:0] iCmd_in,
+  input wire [47:0] iCmd_in,
   input wire iStrobe_in,
   input wire iAck_in,
 
@@ -26,14 +26,18 @@ module cmdcontrol // solo no implement'e serial ready input
   output reg oStrobe_out,
   output reg oAck_out,
   output reg oCommand_complete,
-  output reg [37:0] oResponse,
+  output reg [47:0] oResponse,
 
   output reg oCommand_index_error,
-  output reg [37:0] oCmd_out
+  output reg [47:0] oCmd_out
 
 );
 
 reg [1:0] rCurrentState, rNextState;
+reg rFirst_bit = 0;
+reg rSecond_bit = 1;
+reg rEnd_bit = 1;
+reg [6:0] rCRC = 7'b1111111;
 
 //----------------------------------------------
 
@@ -87,8 +91,9 @@ begin
 	//------------------------------------------
 	`STATE_SETTINGS_OUTPUTS:
 	begin
+    oIdle_out = 0; // arreglo
     oStrobe_out = 1;
-    oCmd_out = {iCmd_index, iCmd_argument};
+    oCmd_out = {rFirst_bit,rSecond_bit,iCmd_index, iCmd_argument,rCRC,rEnd_bit};
     rNextState = `STATE_PROCESSING;
 	end
   //------------------------------------------
@@ -100,7 +105,7 @@ begin
       oCommand_complete = 1;
       oResponse = iCmd_in;
 
-      if (iCmd_in[36] == 1)
+      if (iCmd_in[46] == 1)
       begin
         oCommand_index_error = 1;
       end else begin

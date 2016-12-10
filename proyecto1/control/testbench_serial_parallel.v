@@ -1,46 +1,44 @@
 `timescale 1ns/1ps
 
-module testbench_parallel_serial;
+module testbench_serial_parallel;
 
   wire wEnable              ;
   wire wReset               ;
-  wire [47:0] wParallel     ;
+  wire wSerial              ;
   wire wClock_SD            ;
 
-  wire wSerial              ;
+  wire [47:0] wParallel     ;
   wire wComplete            ;
 
-
-
   initial begin
-		$dumpfile("testbench_parallel_serial.vcd");
-		$dumpvars(0,testbench_parallel_serial);
+		$dumpfile("testbench_serial_parallel.vcd");
+		$dumpvars(0,testbench_serial_parallel);
 	end
 
-  parallel_serial uutParallel_serial1
+  serial_parallel uutSerial_parallel1
 	(
 
     .iEnable              ( wEnable ),
     .iReset               ( wReset ),
-    .iParallel            ( wParallel  ),
+    .iSerial              ( wSerial  ),
     .iClock_SD            ( wClock_SD ),
 
-    .oSerial              ( wSerial ),
+    .oParallel            ( wParallel ),
     .oComplete            ( wComplete )
 
 	);
 
-	test_parallel_serial uutTest_parallel_serial1
+	test_serial_parallel uutTest_serial_parallel1
 	(
 
     .oEnable              ( wEnable ),
     .oReset               ( wReset ),
-    .oParallel            ( wParallel  ),
+    .oSerial              ( wSerial  ),
     .oClock_SD            ( wClock_SD ),
 
-    .iSerial              ( wSerial ),
+    .iParallel            ( wParallel ),
     .iComplete            ( wComplete )
 
 	);
 
-endmodule // testbench_parallel_serial
+endmodule // testbench_serial_parallel

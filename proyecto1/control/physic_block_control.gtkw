@@ -1,17 +1,17 @@
 [*]
 [*] GTKWave Analyzer v3.3.62 (w)1999-2014 BSI
-[*] Fri Dec  9 05:24:17 2016
+[*] Fri Dec  9 08:42:29 2016
 [*]
 [dumpfile] "/home/sama/Documents/Cursos/Digitales2/git_digitales2_proyectos/proyecto1/control/testbench_physic_block_control.vcd"
-[dumpfile_mtime] "Fri Dec  9 05:17:36 2016"
-[dumpfile_size] 9184
+[dumpfile_mtime] "Fri Dec  9 07:56:48 2016"
+[dumpfile_size] 9545
 [savefile] "/home/sama/Documents/Cursos/Digitales2/git_digitales2_proyectos/proyecto1/control/physic_block_control.gtkw"
-[timestart] 236860
+[timestart] 102639
 [size] 1366 715
 [pos] 0 26
-*-12.545370 245710 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-10.545370 104447 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] testbench_physic_block_control.
-[sst_width] 213
+[sst_width] 272
 [signals_width] 276
 [sst_expanded] 1
 [sst_vpaned_height] 195
@@ -19,31 +19,34 @@
 testbench_physic_block_control.wAck_in
 testbench_physic_block_control.wAck_out
 testbench_physic_block_control.wClock_SD
+testbench_physic_block_control.wCommand_timeout
 testbench_physic_block_control.wEnable_PTS_wrapper
 testbench_physic_block_control.wEnable_STP_wrapper
+testbench_physic_block_control.wIdle_in
 testbench_physic_block_control.wLoad_send
 testbench_physic_block_control.wNo_response
 testbench_physic_block_control.wPad_enable
 @22
-testbench_physic_block_control.wPad_response[37:0]
+testbench_physic_block_control.wPad_response[47:0]
 @28
 testbench_physic_block_control.wPad_stable
 testbench_physic_block_control.wReception_complete
 testbench_physic_block_control.wReset
 testbench_physic_block_control.wReset_wrapper
 @22
-testbench_physic_block_control.wResponse[37:0]
+testbench_physic_block_control.wResponse[47:0]
 @28
 testbench_physic_block_control.wStrobe_in
 testbench_physic_block_control.wStrobe_out
 testbench_physic_block_control.wTransmission_complete
-testbench_physic_block_control.wIdle_in
 @22
 testbench_physic_block_control.uutPBC1.rCurrentState[3:0]
 testbench_physic_block_control.uutPBC1.rNextState[3:0]
 @24
 testbench_physic_block_control.uutPBC1.rCuenta[5:0]
-@28
-testbench_physic_block_control.wCommand_timeout
+@22
+testbench_physic_block_control.wCommand_from_CC[47:0]
+@23
+testbench_physic_block_control.wCommand_to_PTS[47:0]
 [pattern_trace] 1
 [pattern_trace] 0

@@ -1,0 +1,34 @@
+[*]
+[*] GTKWave Analyzer v3.3.71 (w)1999-2016 BSI
+[*] Fri Dec 09 22:11:33 2016
+[*]
+[dumpfile] "C:\Users\Ronald\Desktop\Final\state.vcd"
+[dumpfile_mtime] "Fri Dec 09 22:06:14 2016"
+[dumpfile_size] 4529
+[savefile] "C:\Users\Ronald\Desktop\Final\Estados.gtkw"
+[timestart] 0
+[size] 1366 706
+[pos] -109 -99
+*-4.127281 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tbsta.
+[sst_width] 197
+[signals_width] 190
+[sst_expanded] 1
+[sst_vpaned_height] 190
+@24
+tbsta.sta1.clk_in_1
+tbsta.sta1.write_1
+tbsta.sta1.enable_2
+tbsta.sta1.error_1
+tbsta.sta1.data_in_FIFO_1[7:0]
+tbsta.sta1.data_out_RAM_1[7:0]
+tbsta.sta1.state
+tbsta.sta1.block_size[11:0]
+tbsta.sta1.Data_transfer
+tbsta.sta1.data_in_RAM_1[7:0]
+tbsta.sta1.data_out_FIFO_1[7:0]
+tbsta.sta1.addr_RAM_i[63:0]
+tbsta.sta1.addr_RAM_o[63:0]
+tbsta.sta1.reset_1
+[pattern_trace] 1
+[pattern_trace] 0

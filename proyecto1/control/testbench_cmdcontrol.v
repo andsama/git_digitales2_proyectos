@@ -7,7 +7,7 @@ module testbench_cmdcontrol;
   wire wNew_command                 ;
   wire [5:0] wCmd_index             ;
   wire [31:0] wCmd_argument         ;
-  wire [37:0] wCmd_in               ;
+  wire [47:0] wCmd_in               ;
   wire wStrobe_in                   ;
   wire wAck_in                      ;
 
@@ -18,10 +18,10 @@ module testbench_cmdcontrol;
   wire wStrobe_out                  ;
   wire wAck_out                     ;
   wire wCommand_complete            ;
-  wire [37:0] wResponse             ;
+  wire [47:0] wResponse             ;
 
   wire wCommand_index_error         ;
-  wire [37:0] wCmd_out              ;
+  wire [47:0] wCmd_out              ;
 
   initial begin
 		$dumpfile("testbench_cmdcontrol.vcd");

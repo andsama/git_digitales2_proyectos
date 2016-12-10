@@ -1,0 +1,104 @@
+[*]
+[*] GTKWave Analyzer v3.3.71 (w)1999-2016 BSI
+[*] Fri Dec 09 22:13:39 2016
+[*]
+[dumpfile] "C:\Users\Ronald\Desktop\Final\signal.vcd"
+[dumpfile_mtime] "Fri Dec 09 22:12:59 2016"
+[dumpfile_size] 2770
+[savefile] "C:\Users\Ronald\Desktop\Final\signal.gtkw"
+[timestart] 0
+[size] 1366 706
+[pos] -1 -1
+*-4.384696 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 197
+[signals_width] 150
+[sst_expanded] 1
+[sst_vpaned_height] 190
+@22
+tbsig.clkc
+tbsig.End_INc
+tbsig.End_OUTc
+tbsig.act1_INc
+tbsig.act2_INc
+@c00022
+tbsig.transc[1:0]
+@28
+(0)tbsig.transc[1:0]
+(1)tbsig.transc[1:0]
+@1401202
+-group_end
+@c00022
+tbsig.addr_COMc[63:0]
+@28
+(0)tbsig.addr_COMc[63:0]
+(1)tbsig.addr_COMc[63:0]
+(2)tbsig.addr_COMc[63:0]
+(3)tbsig.addr_COMc[63:0]
+(4)tbsig.addr_COMc[63:0]
+(5)tbsig.addr_COMc[63:0]
+(6)tbsig.addr_COMc[63:0]
+(7)tbsig.addr_COMc[63:0]
+(8)tbsig.addr_COMc[63:0]
+(9)tbsig.addr_COMc[63:0]
+(10)tbsig.addr_COMc[63:0]
+(11)tbsig.addr_COMc[63:0]
+(12)tbsig.addr_COMc[63:0]
+(13)tbsig.addr_COMc[63:0]
+(14)tbsig.addr_COMc[63:0]
+(15)tbsig.addr_COMc[63:0]
+(16)tbsig.addr_COMc[63:0]
+(17)tbsig.addr_COMc[63:0]
+(18)tbsig.addr_COMc[63:0]
+(19)tbsig.addr_COMc[63:0]
+(20)tbsig.addr_COMc[63:0]
+(21)tbsig.addr_COMc[63:0]
+(22)tbsig.addr_COMc[63:0]
+(23)tbsig.addr_COMc[63:0]
+(24)tbsig.addr_COMc[63:0]
+(25)tbsig.addr_COMc[63:0]
+(26)tbsig.addr_COMc[63:0]
+(27)tbsig.addr_COMc[63:0]
+(28)tbsig.addr_COMc[63:0]
+(29)tbsig.addr_COMc[63:0]
+(30)tbsig.addr_COMc[63:0]
+(31)tbsig.addr_COMc[63:0]
+(32)tbsig.addr_COMc[63:0]
+(33)tbsig.addr_COMc[63:0]
+(34)tbsig.addr_COMc[63:0]
+(35)tbsig.addr_COMc[63:0]
+(36)tbsig.addr_COMc[63:0]
+(37)tbsig.addr_COMc[63:0]
+(38)tbsig.addr_COMc[63:0]
+(39)tbsig.addr_COMc[63:0]
+(40)tbsig.addr_COMc[63:0]
+(41)tbsig.addr_COMc[63:0]
+(42)tbsig.addr_COMc[63:0]
+(43)tbsig.addr_COMc[63:0]
+(44)tbsig.addr_COMc[63:0]
+(45)tbsig.addr_COMc[63:0]
+(46)tbsig.addr_COMc[63:0]
+(47)tbsig.addr_COMc[63:0]
+(48)tbsig.addr_COMc[63:0]
+(49)tbsig.addr_COMc[63:0]
+(50)tbsig.addr_COMc[63:0]
+(51)tbsig.addr_COMc[63:0]
+(52)tbsig.addr_COMc[63:0]
+(53)tbsig.addr_COMc[63:0]
+(54)tbsig.addr_COMc[63:0]
+(55)tbsig.addr_COMc[63:0]
+(56)tbsig.addr_COMc[63:0]
+(57)tbsig.addr_COMc[63:0]
+(58)tbsig.addr_COMc[63:0]
+(59)tbsig.addr_COMc[63:0]
+(60)tbsig.addr_COMc[63:0]
+(61)tbsig.addr_COMc[63:0]
+(62)tbsig.addr_COMc[63:0]
+(63)tbsig.addr_COMc[63:0]
+@1401202
+-group_end
+@22
+tbsig.addr_RAMc[63:0]
+tbsig.valid_INc
+tbsig.valid_OUTc
+[pattern_trace] 1
+[pattern_trace] 0
