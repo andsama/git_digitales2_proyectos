@@ -39,47 +39,20 @@ module probador_data
     output Service,        //Para solicitar servicio
     output [31:0] Data_from_FIFO,
     output [31:0] Data_to_FIFO_temp,
-    output WriteEn_in,
-    output ReadEn_in,
-    output Clear_in,
-    output wire Data_pin_in,
+    output Data_pin_in,
+    output [31:0] Data_from_DMA,
     output wire Data_pin_out
   );
 
-  reg WriteEn_in = 1;
-   initial begin
-     # 350  WriteEn_in = 0;
-     # 150  WriteEn_in = 1;
-     # 250  WriteEn_in = 0;
-     # 4000 $finish;
-  end
-
-  reg ReadEn_in = 0;
-   initial begin
-   # 350  ReadEn_in = 1;
-   # 150  ReadEn_in = 0;
-   # 250  ReadEn_in = 1;
-     # 4000 $finish;
-  end
-
-  reg [31:0] Data_to_FIFO_temp = 122;
+  reg [31:0] Data_from_DMA = 1220;
   initial begin
-    # 350  Data_to_FIFO_temp = 150;
-    # 350  Data_to_FIFO_temp = 750;
+    # 350  Data_from_DMA = 150;
+    # 350  Data_from_DMA = 750;
     # 4000 $finish;
  end
 
- reg Clear_in = 1;
- initial begin
-# 150  Clear_in = 0;
-# 150 Clear_in = 0;
-# 250  Clear_in = 0;
-# 150  Clear_in = 1;
-# 200  Clear_in = 0;
-# 4000 $finish;
-end
 
-  reg Data_from_FIFO = 720;
+  reg Data_to_FIFO = 720;
 
   reg Clock = 0;
   always #20 Clock = !Clock;         //50 MHz
@@ -93,9 +66,45 @@ reg Reset=1;
    # 4000 $finish;
 end
 
-reg WriteRead = 1;
+reg Data_pin_in=1;         //Para simular un dato de entrada de la SD
+ initial begin
+   # 40  Data_pin_in = 0;
+   # 40  Data_pin_in = 0;
+   # 40  Data_pin_in = 0;
+   # 40  Data_pin_in = 0;
+   # 40  Data_pin_in = 0;
+   # 40  Data_pin_in = 0;
+   # 40  Data_pin_in = 0;
+   # 40  Data_pin_in = 0;
+   # 40  Data_pin_in = 0;
+   # 40  Data_pin_in = 0;
+   # 40  Data_pin_in = 1;
+   # 40  Data_pin_in = 0;
+   # 40  Data_pin_in = 1;
+   # 40  Data_pin_in = 0;
+   # 40  Data_pin_in = 0;
+   # 40  Data_pin_in = 1;
+   # 40  Data_pin_in = 0;
+   # 40  Data_pin_in = 1;
+   # 40  Data_pin_in = 1;
+   # 40  Data_pin_in = 0;
+   # 40  Data_pin_in = 1;
+   # 40  Data_pin_in = 0;
+   # 40  Data_pin_in = 0;
+   # 40  Data_pin_in = 1;
+   # 40  Data_pin_in = 0;
+   # 40  Data_pin_in = 1;
+   # 40  Data_pin_in = 1;
+   # 40  Data_pin_in = 0;
+   # 40  Data_pin_in = 1;
+   # 40  Data_pin_in = 0;
+   # 40  Data_pin_in = 0;
+   # 40  Data_pin_in = 0;
+   # 4000 $finish;
+end
+
+reg WriteRead = 1'b1;       //Lectura o escritura
 reg Blocks = 1;
-reg MultipleData = 0;
 reg Timeout_enable = 0;
 reg Timeout_reg = 70;
 

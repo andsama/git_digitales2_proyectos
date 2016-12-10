@@ -36,8 +36,8 @@ wire Write_enable, Complete_lectura, Complete_escritura, Empty_out, ReadEn_in;
 wire Full_out, WriteEn_in, Clear_in;
 wire [Blocks_size_to_process-1:0] Blocks;
 wire [Register_size-1:0] Timeout_reg;
-wire [FIFO_data_size-1:0] Data_from_FIFO, Data_to_FIFO;
-wire [31:0] Data_from_FIFO_temp, Data_to_FIFO_temp;
+wire [FIFO_data_size-1:0] Data_from_FIFO, Data_to_FIFO, Data_to_DMA;
+wire [31:0] Data_from_FIFO_temp, Data_to_FIFO_temp, Data_from_DMA;
 wire [3:0] fifo_counter;
 
 data_control Control_datos
@@ -58,7 +58,6 @@ data_control Control_datos
     .oData_transfer_complete(Data_transfer_complete),
     .oSend(Send),
     .oAck(Ack_in_phys),
-    .oBlocks(Blocks),
     .oTimeout_val(Timeout_reg),
     .oWriteRead(WriteRead),
     .oMultipleData(MultipleData),
@@ -78,9 +77,8 @@ data_control Control_datos
     .iReset(Reset),
     .iClock(Clock),
     .iSD_clock(SD_clock),
-    .iData_pin(Data_pin_in),
+    .iData_from_SD(Data_pin_in),
     .iSend(Send),
-    .oData_pin(Data_pin_out),
     .oSerial_ready(Serial_ready),
     .oComplete(Complete),
     .oAck(Ack_in_control),
@@ -89,6 +87,9 @@ data_control Control_datos
     .oWrite_enable(Write_enable),
     .oComplete_lectura(Complete_lectura),
     .oComplete_escritura(Complete_escritura),
+    .oReadEn_in(ReadEn_in),
+    .oWriteEn_in(WriteEn_in),
+    .oClear_in(Clear_in),
     .oData_to_FIFO(Data_to_FIFO)
   );
 
@@ -106,7 +107,6 @@ data_control Control_datos
       .Serial_ready(Serial_ready),
       .Timeout(Timeout),
       .Complete(Complete),
-      //.Ack_in(Ack_in_control),
       .FIFO_ok(FIFO_ok),
       .Data_transfer_complete(Data_transfer_complete),
       .Send(Send),
@@ -116,24 +116,35 @@ data_control Control_datos
       .Data_from_FIFO(Data_from_FIFO),
       .Data_to_FIFO_temp(Data_to_FIFO_temp),
       .Data_pin_in(Data_pin_in),
-      .WriteEn_in(WriteEn_in),
-      .ReadEn_in(ReadEn_in),
-      .Clear_in(Clear_in),
+      .Data_from_DMA(Data_from_DMA),
       .Data_pin_out(Data_pin_out)
     );
 
-  aFifo MyFIFO
+  aFifo MyFIFO_Write
     (
-      .Data_out(Data_from_FIFO_temp),
+      .Data_out(Data_from_FIFO),
       .Empty_out(Empty_out),
       .ReadEn_in(ReadEn_in),
       .RClk(SD_clock),
-      .Data_in(Data_to_FIFO_temp),
+      .Data_in(Data_from_DMA),
       .Full_out(Full_out),
       .WriteEn_in(WriteEn_in),
       .WClk(Clock),
       .Clear_in(Clear_in)
     );
+
+    aFifo MyFIFO_Read
+      (
+        .Data_out(Data_to_DMA),
+        .Empty_out(Empty_out),
+        .ReadEn_in(ReadEn_in),
+        .RClk(Clock),
+        .Data_in(Data_to_FIFO),
+        .Full_out(Full_out),
+        .WriteEn_in(WriteEn_in),
+        .WClk(SD_clock),
+        .Clear_in(Clear_in)
+      );
 
     /*fifo MyFIFO
     (

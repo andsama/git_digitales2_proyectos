@@ -1,0 +1,36 @@
+[*]
+[*] GTKWave Analyzer v3.3.58 (w)1999-2014 BSI
+[*] Sat Dec 10 08:05:32 2016
+[*]
+[dumpfile] "/home/maurimo/git/git_digitales2_proyectos/proyecto1/DATA/probador_data.vcd"
+[dumpfile_mtime] "Sat Dec 10 08:04:23 2016"
+[dumpfile_size] 13321
+[savefile] "/home/maurimo/git/git_digitales2_proyectos/proyecto1/DATA/escritura.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-20.368193 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] test_data.
+[treeopen] test_data.Capa_Fisica_datos.
+[sst_width] 223
+[signals_width] 150
+[sst_expanded] 1
+[sst_vpaned_height] 160
+@28
+test_data.Control_datos.iClock
+@29
+test_data.Capa_Fisica_datos.iSD_clock
+@24
+test_data.Control_datos.rState[2:0]
+test_data.Capa_Fisica_datos.rState[3:0]
+test_data.MyFIFO_Write.Data_out[31:0]
+@28
+test_data.MyFIFO_Write.WriteEn_in
+test_data.MyFIFO_Write.Clear_in
+test_data.MyFIFO_Write.ReadEn_in
+test_data.Capa_Fisica_datos.escritura.iParallel[31:0]
+test_data.Capa_Fisica_datos.escritura.iEnable
+test_data.Capa_Fisica_datos.escritura.oSerial
+test_data.Capa_Fisica_datos.escritura.oComplete
+[pattern_trace] 1
+[pattern_trace] 0

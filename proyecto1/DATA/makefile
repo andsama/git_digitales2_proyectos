@@ -14,9 +14,9 @@
 # CHANGE THESE THREE LINES FOR YOUR DESIGN
 #
 #TOOL INPUT
-SRC = data.v probador_data.v aFifo.v GrayCounter.v fifo.v bFifo.v cFifo.v regfile.v
+SRC = data.v probador_data.v aFifo.v GrayCounter.v
 TESTBENCH = data_tb.v
-TBOUTPUT = probador_data.vcd #THIS NEEDS TO MATCH THE OUTPUT FILE
+TBOUTPUT = probador_data.vcd escritura.gtkw #THIS NEEDS TO MATCH THE OUTPUT FILE
 			#FROM YOUR TESTBENCH
 ###############################################################################
 # BE CAREFUL WHEN CHANGING ITEMS BELOW THIS LINE
