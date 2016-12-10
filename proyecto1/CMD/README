@@ -5,6 +5,8 @@ se muestran los diferentes módulos en archivos separados (controlcmd,
 serial_parallel, etc). Para verificar el funcionamiento de los mismos
 es suficiente con hacer make y la palabra correspondiente para cada bloque:
 
+make : simulación completa
+
 make controlcmd : para el módulo del control CMD
 
 make physic : para el módulo del control de la capa física
