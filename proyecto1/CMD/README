@@ -1,0 +1,22 @@
+Esta carpeta contiene los archivos asociados a la implementación
+del bloque CMD. Haciendo make se genera la simulación completa
+del envío y recibo de un comando y una respuesta. Sin embargo, también
+se muestran los diferentes módulos en archivos separados (controlcmd,
+serial_parallel, etc). Para verificar el funcionamiento de los mismos
+es suficiente con hacer make y la palabra correspondiente para cada bloque:
+
+make : simulación completa
+
+make controlcmd : para el módulo del control CMD
+
+make physic : para el módulo del control de la capa física
+
+make pts : módulo para el wrapper paralelo-serie
+
+make stp: módulo para el wrapper serie-paralelo
+
+Si alguno de los últimos dos NO funciona, es decir, las señales en gtkwave
+son siempre 0, esto se debe a que en el test_little_modules, las condiciones
+y los tiempos y demás están comentados, con el fin de NO cortar la simulación
+del otro módulo ahí probado.
+

@@ -1,0 +1,25 @@
+[*]
+[*] GTKWave Analyzer v3.3.62 (w)1999-2014 BSI
+[*] Fri Dec  9 11:03:03 2016
+[*]
+[dumpfile] "/home/sama/Documents/Cursos/Digitales2/git_digitales2_proyectos/proyecto1/control/testbench_parallel_serial.vcd"
+[dumpfile_mtime] "Fri Dec  9 11:02:40 2016"
+[dumpfile_size] 11923
+[savefile] "/home/sama/Documents/Cursos/Digitales2/git_digitales2_proyectos/proyecto1/control/parallel_serial.gtkw"
+[timestart] 15690
+[size] 1366 715
+[pos] -1 -1
+*-14.000000 16630 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 213
+[signals_width] 243
+[sst_expanded] 1
+[sst_vpaned_height] 195
+@28
+testbench_parallel_serial.wClock_SD
+testbench_parallel_serial.wComplete
+testbench_parallel_serial.wEnable
+testbench_parallel_serial.wReset
+testbench_parallel_serial.wSerial
+testbench_parallel_serial.wParallel[47:0]
+[pattern_trace] 1
+[pattern_trace] 0

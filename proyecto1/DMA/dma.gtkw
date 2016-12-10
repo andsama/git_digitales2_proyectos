@@ -1,0 +1,33 @@
+[*]
+[*] GTKWave Analyzer v3.3.71 (w)1999-2016 BSI
+[*] Sat Dec 10 05:06:15 2016
+[*]
+[dumpfile] "C:\Users\Ronald\Desktop\Final\dma.vcd"
+[dumpfile_mtime] "Sat Dec 10 05:01:51 2016"
+[dumpfile_size] 8857
+[savefile] "C:\Users\Ronald\Desktop\Final\dma.gtkw"
+[timestart] 0
+[size] 1366 706
+[pos] -59 -59
+*-4.276928 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 42
+[signals_width] 230
+[sst_expanded] 0
+[sst_vpaned_height] 190
+@24
+tbdma.clk_in_COMc
+tbdma.addr_in_COMc[95:0]
+tbdma.addr_out_RAMc[63:0]
+tbdma.data_in_FIFOc[7:0]
+tbdma.data_in_RAMc[7:0]
+tbdma.data_out_FIFOc[7:0]
+tbdma.data_out_RAMc[7:0]
+tbdma.enable_transfer_mode_REGc
+tbdma.error_in_COMc
+tbdma.full_FIFOc
+tbdma.write_in_COMc
+tbdma.block_size_REGc[11:0]
+tbdma.busyc
+tbdma.newDAT_DATc
+[pattern_trace] 1
+[pattern_trace] 0

@@ -1,12 +1,12 @@
 `timescale 1ns / 1ps
 
 // state definitions
-`define STATE_RESET 	                  0
+`define STATE_RESET 	                  0  // change this
 `define STATE_IDLE 	                    1
 `define STATE_SETTINGS_OUTPUTS 	        2
 `define STATE_PROCESSING 	              3
 
-module cmd
+module cmdcontrol
 (
   // inputs
   input wire iClock_host,
@@ -14,23 +14,30 @@ module cmd
   input wire iNew_command,
   input wire [5:0] iCmd_index,
   input wire [31:0] iCmd_argument,
-  //input wire [37:0] iCmd_in,
+  input wire [47:0] iCmd_in,
   input wire iStrobe_in,
   input wire iAck_in,
 
+  input wire iTimeout_enable,
+  input wire iTimeout,
 
   // outputs
-  // output reg oIdle_out, not implementing timeout signal yet
+  output reg oIdle_out,
   output reg oStrobe_out,
   output reg oAck_out,
   output reg oCommand_complete,
-  output reg [37:0] oResponse
+  output reg [47:0] oResponse,
+
+  output reg oCommand_index_error,
+  output reg [47:0] oCmd_out
 
 );
 
 reg [1:0] rCurrentState, rNextState;
-reg [31:0] rTimeCount;
-reg rTimeCountReset;
+reg rFirst_bit = 0;
+reg rSecond_bit = 1;
+reg rEnd_bit = 1;
+reg [6:0] rCRC = 7'b1111111;
 
 //----------------------------------------------
 
@@ -39,16 +46,16 @@ begin
 	if (iReset)
 	begin
 		rCurrentState <= `STATE_RESET;
-		rTimeCount <= 32'b0;
 	end
+
 	else
 	begin
-		if (rTimeCountReset)
-				rTimeCount <= 32'b0; // resets count
-		else
-				rTimeCount <= rTimeCount + 32'b1; // increments count
-
-		rCurrentState <= rNextState;
+    if (iTimeout_enable && iTimeout)
+    begin
+      rCurrentState <= `STATE_IDLE;
+    end else begin
+      rCurrentState <= rNextState;
+    end
 	end
 end
 
@@ -61,17 +68,19 @@ begin
 	`STATE_RESET:
 	begin
 
-    // oIdle_out = 0;
+    oIdle_out = 0;
     oStrobe_out = 0;
     oAck_out = 0;
     oCommand_complete = 0;
     oResponse = 0;
+    oCommand_index_error = 0;
+    oCmd_out = 0;
 		rNextState = 	`STATE_IDLE;
 	end
 	//------------------------------------------
 	`STATE_IDLE:
 	begin
-    // oIdle_out = 1;
+    oIdle_out = 1;
     if(iNew_command == 1)
     begin
       rNextState =  `STATE_SETTINGS_OUTPUTS;
@@ -82,8 +91,9 @@ begin
 	//------------------------------------------
 	`STATE_SETTINGS_OUTPUTS:
 	begin
+    oIdle_out = 0; // arreglo
     oStrobe_out = 1;
-    //assign iCmd_in = {iCmd_index, iCmd_argument}; i just can concatenate this to oResponse
+    oCmd_out = {rFirst_bit,rSecond_bit,iCmd_index, iCmd_argument,rCRC,rEnd_bit};
     rNextState = `STATE_PROCESSING;
 	end
   //------------------------------------------
@@ -93,11 +103,21 @@ begin
     begin
       oAck_out = 1;
       oCommand_complete = 1;
-    end // if with no else
-    oResponse = {iCmd_index, iCmd_argument};
-    if (iAck_in == 1)
-    begin
-      rNextState = `STATE_IDLE;
+      oResponse = iCmd_in;
+
+      if (iCmd_in[46] == 1)
+      begin
+        oCommand_index_error = 1;
+      end else begin
+        oCommand_index_error = 0;
+      end
+
+      if (iAck_in == 1)
+      begin
+        rNextState = `STATE_IDLE;
+      end else begin
+        rNextState = `STATE_PROCESSING;
+      end
     end else begin
       rNextState = `STATE_PROCESSING;
     end
@@ -111,7 +131,4 @@ begin
 	endcase
 end
 
-endmodule // cmd
-
-// i didnt consider errors in index/command
-// not sure if implement timeout signal
+endmodule // cmdcontrol

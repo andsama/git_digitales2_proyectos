@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 // state definitions
-`define STATE_RESET 	                  0
+`define STATE_RESET 	                  0  // change this
 `define STATE_IDLE 	                    1
 `define STATE_LOAD_COMMAND 	            2
 `define STATE_SEND_COMMAND              3
@@ -19,10 +19,13 @@ module physic_block_control
   input wire iTransmission_complete,
   input wire iReception_complete,
   input wire iNo_response,
-  input wire [37:0] iPad_response,
+  input wire [47:0] iPad_response,
   input wire iAck_in,
+  input wire iIdle_in,
+  input wire [47:0] iCommand_from_CC,
 
   // outputs
+  output reg [47:0] oCommand_to_PTS,
   output reg oReset_wrapper,
   output reg oEnable_PTS_wrapper, // parallel to serial
   output reg oEnable_STP_wrapper, // Serial to parallel
@@ -30,13 +33,13 @@ module physic_block_control
   output reg oPad_enable,
   output reg oLoad_send,
   output reg oStrobe_out,
-  output reg [37:0] oResponse,
+  output reg oCommand_timeout, // NUEVA
+  output reg [47:0] oResponse,
   output reg oAck_out
 );
 
 reg [3:0] rCurrentState, rNextState;
-reg [31:0] rTimeCount;
-reg rTimeCountReset;
+reg [5:0] rCuenta = 6'd0;
 
 //----------------------------------------------
 
@@ -45,17 +48,21 @@ begin
 	if (iReset)
 	begin
 		rCurrentState <= `STATE_RESET;
-		rTimeCount <= 32'b0;
-	end
-	else
-	begin
-		if (rTimeCountReset)
-				rTimeCount <= 32'b0; // resets count
-		else
-				rTimeCount <= rTimeCount + 32'b1; // increments count
+	end else begin
 
-		rCurrentState <= rNextState;
-	end
+    if (iIdle_in)
+    begin
+      rCurrentState <= `STATE_IDLE;
+    end else begin
+      rCurrentState <= rNextState;
+      if( rCurrentState == 4)
+      begin
+        rCuenta = rCuenta + 6'd1;
+      end else begin
+        rCuenta = 0;
+      end
+    end
+  end
 end
 
 //----------------------------------------------
@@ -66,7 +73,6 @@ begin
 	//------------------------------------------
 	`STATE_RESET:
 	begin
-    // all outputs low?
 
     oReset_wrapper = 0;
     oEnable_PTS_wrapper = 0;
@@ -75,8 +81,9 @@ begin
     oPad_enable = 0;
     oLoad_send = 0;
     oStrobe_out = 0;
-    oResponse = 0;
+    oResponse = 48'd0;
     oAck_out = 0;
+    oCommand_timeout = 0;
 
 		rNextState = 				`STATE_IDLE;
 	end
@@ -95,8 +102,10 @@ begin
 	`STATE_LOAD_COMMAND:
 	begin
     oEnable_PTS_wrapper = 1;
-    oPad_stable = 1;
+    oReset_wrapper = 0;
+    oPad_stable = 1; // estas sennales que van al PAD no se ocupan
     oPad_enable = 1;
+    oCommand_to_PTS = iCommand_from_CC;
     rNextState = `STATE_SEND_COMMAND;
 	end
   //------------------------------------------
@@ -115,11 +124,20 @@ begin
 	begin
     oPad_enable = 0;
     oEnable_STP_wrapper = 1;
-    if (iReception_complete == 1 | iNo_response == 1)
+
+    if (rCuenta == 6'd60)
     begin
-      rNextState = `STATE_SEND_RESPONSE;
+      oCommand_timeout = 1;
+      rNextState = `STATE_IDLE;
     end else begin
-      rNextState = `STATE_WAIT_RESPONSE;
+
+      if (iReception_complete == 1 | iNo_response == 1)
+      begin
+        rNextState = `STATE_SEND_RESPONSE;
+      end else begin
+        rNextState = `STATE_WAIT_RESPONSE;
+      end
+
     end
 	end
 	//------------------------------------------
@@ -133,6 +151,18 @@ begin
   `STATE_WAIT_ACK:
 	begin
     // outputs in low level?
+
+    oReset_wrapper = 0;
+    oEnable_PTS_wrapper = 0;
+    oEnable_STP_wrapper = 0;
+    oPad_stable = 0;
+    oPad_enable = 0;
+    oLoad_send = 0;
+    oStrobe_out = 1; // arreglo
+    //oResponse = 48'd0;
+    oAck_out = 0;
+    oCommand_timeout = 0;
+
     if (iAck_in == 1)
     begin
       rNextState = `STATE_SEND_ACK;

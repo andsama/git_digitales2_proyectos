@@ -1,0 +1,63 @@
+[*]
+[*] GTKWave Analyzer v3.3.62 (w)1999-2014 BSI
+[*] Fri Dec  9 06:39:31 2016
+[*]
+[dumpfile] "/home/sama/Documents/Cursos/Digitales2/git_digitales2_proyectos/proyecto1/control/testbench_cmdcontrol.vcd"
+[dumpfile_mtime] "Fri Dec  9 06:36:14 2016"
+[dumpfile_size] 8256
+[savefile] "/home/sama/Documents/Cursos/Digitales2/git_digitales2_proyectos/proyecto1/control/cmdcontrol.gtkw"
+[timestart] 56480
+[size] 1366 715
+[pos] -1 -1
+*-12.365640 6700 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] testbench_cmdcontrol.
+[sst_width] 213
+[signals_width] 332
+[sst_expanded] 1
+[sst_vpaned_height] 195
+@24
+testbench_cmdcontrol.wAck_in
+testbench_cmdcontrol.wAck_out
+testbench_cmdcontrol.wClock_host
+@22
+testbench_cmdcontrol.wCmd_argument[31:0]
+@28
+testbench_cmdcontrol.wCmd_in[47:0]
+@22
+testbench_cmdcontrol.wCmd_index[5:0]
+@28
+testbench_cmdcontrol.wCmd_out[47:0]
+@24
+testbench_cmdcontrol.wCommand_complete
+testbench_cmdcontrol.wCommand_index_error
+testbench_cmdcontrol.wIdle_out
+testbench_cmdcontrol.wNew_command
+testbench_cmdcontrol.wReset
+@22
+testbench_cmdcontrol.wResponse[47:0]
+@24
+testbench_cmdcontrol.wStrobe_in
+testbench_cmdcontrol.wStrobe_out
+testbench_cmdcontrol.wTimeout
+testbench_cmdcontrol.wTimeout_enable
+testbench_cmdcontrol.uutCmdC1.rCurrentState[1:0]
+testbench_cmdcontrol.uutCmdC1.rNextState[1:0]
+@28
+testbench_cmdcontrol.uutCmdC1.rFirst_bit
+testbench_cmdcontrol.uutCmdC1.rSecond_bit
+@c00022
+testbench_cmdcontrol.uutCmdC1.rCRC[6:0]
+@28
+(0)testbench_cmdcontrol.uutCmdC1.rCRC[6:0]
+(1)testbench_cmdcontrol.uutCmdC1.rCRC[6:0]
+(2)testbench_cmdcontrol.uutCmdC1.rCRC[6:0]
+(3)testbench_cmdcontrol.uutCmdC1.rCRC[6:0]
+(4)testbench_cmdcontrol.uutCmdC1.rCRC[6:0]
+(5)testbench_cmdcontrol.uutCmdC1.rCRC[6:0]
+(6)testbench_cmdcontrol.uutCmdC1.rCRC[6:0]
+@1401200
+-group_end
+@28
+testbench_cmdcontrol.uutCmdC1.rEnd_bit
+[pattern_trace] 1
+[pattern_trace] 0
